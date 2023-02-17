@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<button type="button" onclick="generateData()">Generate Data</button>
+		<form id="form">
+			<input id="year" type="number" name="year" placeholder="Year">
+			<div id="regionals"></div>
+			<div id="finalFour">
+				<h4>Final Four</h4>
+			</div>
+			<div id="championship">
+				<h4>Championship</h4>
+			</div>
+			<div id="champion">
+				<h4>Champion</h4>
+			</div>
+			<button type="submit">Save</button>
+		</form>
+	</body>
+
+	<script id="regionTemplate" type="text/template">
+		<h2>{REGION}</h2>
+		<div id="{REGION}_r1" class="round">
+			<h4>Round 1</h4>
+		</div>
+		<div id="{REGION}_r2" class="round">
+			<h4>Round 2</h4>
+		</div>
+		<div id="{REGION}_r3" class="round">
+			<h4>Round 3</h4>
+		</div>
+		<div id="{REGION}_r4" class="round">
+			<h4>Round 4</h4>
+		</div>
+	</script>
+
+	<script id="teamTemplate" type="text/template">
+		<input
+			type="text"
+			value="{SEED}"
+			data-team="{TEAM}"
+			readonly
+			size="2"
+			tabindex="-1"
+			class="seed">
+		<input
+			type="text"
+			value="{NAME}"
+			placeholder="Team name"
+			data-team="{TEAM}"
+			data-match="{MATCH}"
+			class="name"
+			{NAME_TAB_INDEX}
+			{READONLY}>
+		<input
+			type="number"
+			placeholder="Score"
+			min="0"
+			data-team="{TEAM}"
+			data-match="{MATCH}"
+			data-position="{POSITION}"
+			class="score{HIDDEN}">
+	</script>
+
+	<script type="text/javascript">
+		function getTeamTemplate(match, position, team) {
+			return teamTemplate
+					.replaceAll("{MATCH}", match)
+					.replaceAll("{POSITION}", position)
+					.replaceAll("{TEAM}", team.number)
+					.replaceAll("{SEED}", team.seed)
+					.replaceAll("{NAME}", team.name)
+					.replaceAll("{NAME_TAB_INDEX}", match < 32 ? "" : 'tabindex="-1"')
+					.replaceAll("{READONLY}", match < 32 ? "" : "readonly")
+					.replaceAll("{HIDDEN}", match === 63 ? " hidden" : "");
+		}
+
+		function replaceMatchPosition(match, position, team) {
+			document
+				.querySelector(`[data-match="${match}"][data-position="${position}"]`)
+				.innerHTML = getTeamTemplate(match, position, team);
+		}
+
+		function createMatchPosition(match, position, team) {
+			const div = document.createElement("DIV");
+			div.setAttribute("data-match", match);
+			div.setAttribute("data-position", position);
+			div.innerHTML = getTeamTemplate(match, position, team);
+			return div;
+		}
+
+		function onTeamNameChange(event) {
+			const teamNumber = event.target.dataset.team;
+			const team = teams[teamNumber];
+			team.name = event.target.value;
+			document
+				.querySelectorAll(`[data-team="${teamNumber}"]`)
+				.forEach(e => {
+					if (e.classList.contains("seed")) {
+						e.value = team.seed;
+					} else if (e.classList.contains("name")) {
+						e.value = team.name;
+					}
+				});
+		}
+
+		function onScoreChange(event) {
+			const teamNumber = parseInt(event.target.dataset.team);
+			if (teamNumber < 0) {
+				return;
+			}
+
+			const match = parseInt(event.target.dataset.match);
+			if (match === 63) {
+				return;
+			}
+
+			const position = parseInt(event.target.dataset.position);
+			const thisTeam = teams[teamNumber];
+			const thisTeamScore = parseInt(event.target.value);
+			const otherTeamScoreInput = document.querySelector(`[class="score"][data-match="${match}"][data-position="${position === 1 ? "0" : "1"}"]`);
+			const otherTeam = teams[otherTeamScoreInput.dataset.team];
+			const otherTeamScore = parseInt(otherTeamScoreInput.value);
+
+			if (Number.isNaN(thisTeamScore) || Number.isNaN(otherTeamScore)) {
+				return;
+			}
+
+			const nextPosition = match % 2 === 0 ? 0 : 1;
+			let nextMatch = 0;
+			if (match < 32) {
+				nextMatch = Math.floor(match / 2) + 32;
+			} else if (match < 48) {
+				nextMatch = Math.floor((match - 32) / 2) + 48;
+			} else if (match < 56) {
+				nextMatch = Math.floor((match - 48) / 2) + 56;
+			} else if (match < 60) {
+				nextMatch += Math.floor((match - 56) / 2) + 60;
+			} else if (match < 62) {
+				nextMatch += Math.floor((match - 60) / 2) + 62;
+			} else if (match < 63) {
+				nextMatch += Math.floor((match - 62) / 2) + 63;
+			}
+
+			const winningTeam = thisTeamScore > otherTeamScore ? thisTeam : otherTeam;
+			replaceMatchPosition(nextMatch, nextPosition, winningTeam);
+		}
+
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+
+        function generateData() {
+            teams.forEach((t, i) => {
+                t.name = i < 16 ? `e${t.seed}`
+                    : i < 32 ? `m${t.seed}`
+                        : i < 48 ? `s${t.seed}`
+                            : `w${t.seed}`;
+                const e = document.querySelector(`[class="name"][data-team="${i}"]`);
+                e.value = t.name;
+                e.dispatchEvent(new Event("change", { "bubbles": true }));
+            });
+
+            for (let i = 0; i < 63; i++) {
+                const p0 = document.querySelector(`[class="score"][data-match="${i}"][data-position="0"]`);
+                p0.value = getRndInteger(50, 100);
+                p0.dispatchEvent(new Event("change", { "bubbles": true }));
+
+                const p1 = 	document.querySelector(`[class="score"][data-match="${i}"][data-position="1"]`);
+                p1.value = getRndInteger(50, 100);
+                p1.dispatchEvent(new Event("change", { "bubbles": true }));
+            }
+        }
+
+        const emptyTeam = { name: "", number: -1, seed: 0 };
+		const regions = ["East", "Midwest", "Southeast", "West"];
+		const initialMatches = [[1, 16], [8, 9], [5, 12], [4, 13], [6, 11], [3, 14], [7, 10], [2, 15]];
+		const regionalsDiv = document.getElementById("regionals");
+		const finalFourDiv = document.getElementById("finalFour");
+		const championshipDiv = document.getElementById("championship");
+		const championDiv = document.getElementById("champion");
+		const regionTemplate = document.getElementById("regionTemplate").innerText;
+		const teamTemplate = document.getElementById("teamTemplate").innerText;
+		const teams = [];
+
+		let matchNumber = 0;
+		let team = 0;
+		regions.forEach(region => {
+			const regionDiv = document.createElement("DIV");
+			regionDiv.innerHTML = regionTemplate
+				.replaceAll("{REGION}", region);
+			regionalsDiv.appendChild(regionDiv);
+
+			const round1Div = document.getElementById(`${region}_r1`);
+			initialMatches.forEach(match => {
+				[seed1, seed2] = match;
+				let t1 = { name: "", seed: seed1, region: region, number: team++ };
+				let t2 = { name: "", seed: seed2, region: region, number: team++ };
+
+				teams.push(t1, t2);
+
+				round1Div.appendChild(createMatchPosition(matchNumber, 0, t1));
+				round1Div.appendChild(createMatchPosition(matchNumber, 1, t2));
+				round1Div.appendChild(document.createElement("BR"));
+				matchNumber++;
+			});
+		});
+
+		regions.forEach(region => {
+			const round2Div = document.getElementById(`${region}_r2`);
+			for (let i = 0; i < 4; i++) {
+				round2Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+				round2Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
+				round2Div.appendChild(document.createElement("BR"));
+				matchNumber++;
+			}
+		});
+
+		regions.forEach(region => {
+			const round3Div = document.getElementById(`${region}_r3`);
+			for (let i = 0; i < 2; i++) {
+				round3Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+				round3Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
+				round3Div.appendChild(document.createElement("BR"));
+				matchNumber++;
+			}
+		});
+
+		regions.forEach(region => {
+			const round4Div = document.getElementById(`${region}_r4`);
+			round4Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+			round4Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
+			matchNumber++;
+		});
+
+		for (let i = 0; i < 2; i++) {
+			finalFourDiv.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+			finalFourDiv.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
+			finalFourDiv.appendChild(document.createElement("BR"));
+			matchNumber++;
+		}
+
+		championshipDiv.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+		championshipDiv.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
+		championshipDiv.appendChild(document.createElement("BR"));
+		matchNumber++;
+
+		championDiv.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
+
+		document.addEventListener("change", event => {
+			if (event.target.classList.contains("score")) {
+				onScoreChange(event);
+			} else if (event.target.dataset.match < 32) {
+				onTeamNameChange(event);
+			}
+		});
+
+		document.addEventListener("submit", event => {
+			const year = parseInt(document.getElementById("year").value);
+			const matches = [...document.querySelectorAll('[class="score"]')]
+					.map(e => {
+						const match = parseInt(e.dataset.match);
+						const position = parseInt(e.dataset.position);
+						const score = parseInt(e.value);
+						const teamNumber = parseInt(e.dataset.team);
+						const team = teams[teamNumber];
+						return {
+							year: year,
+							name: team.name,
+							region: team.region,
+							seed: team.seed,
+							match: match,
+							position: position,
+							score: score
+						};
+					});
+			console.log(matches);
+			event.preventDefault();
+		});
+	</script>
+
+	<style>
+		div.round { display: inline-block; vertical-align: top; margin-right: 3em; }
+		input.seed { width: 3em }
+		input.score { width: 5em }
+		input:read-only { background-color: lightgray; }
+		.hidden { display: none }
+	</style>
+</html>
