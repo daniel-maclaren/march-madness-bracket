@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-		<button type="button" onclick="generateData()">Generate Data</button>
+		<button type="button" onclick="generateData()" class="hidden">Generate Data</button>
 		<form id="form">
 			<input id="year" type="number" name="year" placeholder="Year">
-			<div id="regionals"></div>
+			<div id="regionals">
+				<h2>Regionals</h2>
+			</div>
 			<div id="finalFour">
-				<h4>Final Four</h4>
+				<h2>Final Four</h2>
 			</div>
 			<div id="championship">
-				<h4>Championship</h4>
+				<h2>Championship</h2>
 			</div>
 			<div id="champion">
-				<h4>Champion</h4>
+				<h2>Champion</h2>
 			</div>
 			<button type="submit">Save</button>
 		</form>
 	</body>
 
 	<script id="regionTemplate" type="text/template">
-		<h2>{REGION}</h2>
-		<div id="{REGION}_r1" class="round">
+		<div>
+			<label for="region-{REGION}-name">Select region: </label>
+			<select name="region-{REGION}-name" id="region-{REGION}-name" data-region="{REGION}">
+				<option value="east">East</option>
+				<option value="midwest">Midwest</option>
+				<option value="southeast">Southeast</option>
+				<option value="west">West</option>
+			</select>
+		</div>
+		<div id="region-{REGION}-round-1" class="round">
 			<h4>Round 1</h4>
 		</div>
-		<div id="{REGION}_r2" class="round">
+		<div id="region-{REGION}-round-2" class="round">
 			<h4>Round 2</h4>
 		</div>
-		<div id="{REGION}_r3" class="round">
+		<div id="region-{REGION}-round-3" class="round">
 			<h4>Round 3</h4>
 		</div>
-		<div id="{REGION}_r4" class="round">
+		<div id="region-{REGION}-round-4" class="round">
 			<h4>Round 4</h4>
 		</div>
 	</script>
@@ -177,7 +187,7 @@
         }
 
         const emptyTeam = { name: "", number: -1, seed: 0 };
-		const regions = ["East", "Midwest", "Southeast", "West"];
+		const regions = ["1", "2", "3", "4"];
 		const initialMatches = [[1, 16], [8, 9], [5, 12], [4, 13], [6, 11], [3, 14], [7, 10], [2, 15]];
 		const regionalsDiv = document.getElementById("regionals");
 		const finalFourDiv = document.getElementById("finalFour");
@@ -195,7 +205,7 @@
 				.replaceAll("{REGION}", region);
 			regionalsDiv.appendChild(regionDiv);
 
-			const round1Div = document.getElementById(`${region}_r1`);
+			const round1Div = document.getElementById(`region-${region}-round-1`);
 			initialMatches.forEach(match => {
 				[seed1, seed2] = match;
 				let t1 = { name: "", seed: seed1, region: region, number: team++ };
@@ -211,7 +221,7 @@
 		});
 
 		regions.forEach(region => {
-			const round2Div = document.getElementById(`${region}_r2`);
+			const round2Div = document.getElementById(`region-${region}-round-2`);
 			for (let i = 0; i < 4; i++) {
 				round2Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
 				round2Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
@@ -221,7 +231,7 @@
 		});
 
 		regions.forEach(region => {
-			const round3Div = document.getElementById(`${region}_r3`);
+			const round3Div = document.getElementById(`region-${region}-round-3`);
 			for (let i = 0; i < 2; i++) {
 				round3Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
 				round3Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
@@ -231,7 +241,7 @@
 		});
 
 		regions.forEach(region => {
-			const round4Div = document.getElementById(`${region}_r4`);
+			const round4Div = document.getElementById(`region-${region}-round-4`);
 			round4Div.appendChild(createMatchPosition(matchNumber, 0, emptyTeam));
 			round4Div.appendChild(createMatchPosition(matchNumber, 1, emptyTeam));
 			matchNumber++;
@@ -263,6 +273,10 @@
 			event.preventDefault();
 
 			const year = parseInt(document.getElementById("year").value);
+			const regionMap = {};
+			document.querySelectorAll("select[data-region]")
+					.forEach(e => regionMap[e.dataset.region] = e.value );
+
 			const matches = [...document.querySelectorAll('[class*="score"]')]
 					.map(e => {
 						const match = parseInt(e.dataset.match);
@@ -292,7 +306,7 @@
 							match: match,
 							position: position,
 							teamName: team.name,
-							teamRegion: team.region,
+							teamRegion: regionMap[team.region],
 							teamSeed: team.seed,
 							round: round,
 							score: score
