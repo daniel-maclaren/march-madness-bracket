@@ -92,6 +92,9 @@
 		function onTeamNameChange(event) {
 			const teamNumber = event.target.dataset.team;
 			const team = teams[teamNumber];
+			if (event.target.value) {
+				event.target.value = event.target.value.trim();
+			}
 			team.name = event.target.value;
 			document
 				.querySelectorAll(`[data-team="${teamNumber}"]`)

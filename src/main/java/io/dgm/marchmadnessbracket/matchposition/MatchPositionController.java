@@ -16,6 +16,7 @@ public class MatchPositionController {
 
     @PostMapping
     public void create(@RequestBody Iterable<MatchPosition> matchPositions) {
+        matchPositions.forEach(p -> p.setTeamName(p.getTeamName().trim()));
         matchPositionRepository.saveAll(matchPositions);
     }
 }
