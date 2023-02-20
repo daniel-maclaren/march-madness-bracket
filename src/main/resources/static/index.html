@@ -159,34 +159,38 @@
 			replaceMatchPosition(nextMatch, nextPosition, winningTeam);
 		}
 
+		function getRndInteger(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
 
-        function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) ) + min;
-        }
+		function generateData() {
+			teams.forEach((t, i) => {
+				t.name = i < 16 ? `e${t.seed}`
+						: i < 32 ? `m${t.seed}`
+								: i < 48 ? `w${t.seed}`
+										: `s${t.seed}`;
+				const e = document.querySelector(`[class="name"][data-team="${i}"]`);
+				e.value = t.name;
+				e.dispatchEvent(new Event("change", {"bubbles": true}));
+			});
 
-        function generateData() {
-            teams.forEach((t, i) => {
-                t.name = i < 16 ? `e${t.seed}`
-                    : i < 32 ? `m${t.seed}`
-                        : i < 48 ? `s${t.seed}`
-                            : `w${t.seed}`;
-                const e = document.querySelector(`[class="name"][data-team="${i}"]`);
-                e.value = t.name;
-                e.dispatchEvent(new Event("change", { "bubbles": true }));
-            });
+			document.getElementById("region-1-name").value = "east";
+			document.getElementById("region-2-name").value = "midwest";
+			document.getElementById("region-3-name").value = "west";
+			document.getElementById("region-4-name").value = "southeast";
 
-            for (let i = 0; i < 63; i++) {
-                const p0 = document.querySelector(`[class="score"][data-match="${i}"][data-position="0"]`);
-                p0.value = getRndInteger(50, 100);
-                p0.dispatchEvent(new Event("change", { "bubbles": true }));
+			for (let i = 0; i < 63; i++) {
+				const p0 = document.querySelector(`[class="score"][data-match="${i}"][data-position="0"]`);
+				p0.value = getRndInteger(50, 100);
+				p0.dispatchEvent(new Event("change", {"bubbles": true}));
 
-                const p1 = 	document.querySelector(`[class="score"][data-match="${i}"][data-position="1"]`);
-                p1.value = getRndInteger(50, 100);
-                p1.dispatchEvent(new Event("change", { "bubbles": true }));
-            }
-        }
+				const p1 = document.querySelector(`[class="score"][data-match="${i}"][data-position="1"]`);
+				p1.value = getRndInteger(50, 100);
+				p1.dispatchEvent(new Event("change", {"bubbles": true}));
+			}
+		}
 
-        const emptyTeam = { name: "", number: -1, seed: 0 };
+		const emptyTeam = {name: "", number: -1, seed: 0};
 		const regions = ["1", "2", "3", "4"];
 		const initialMatches = [[1, 16], [8, 9], [5, 12], [4, 13], [6, 11], [3, 14], [7, 10], [2, 15]];
 		const regionalsDiv = document.getElementById("regionals");
@@ -277,13 +281,19 @@
 			document.querySelectorAll("select[data-region]")
 					.forEach(e => regionMap[e.dataset.region] = e.value );
 
-			const matches = [...document.querySelectorAll('[class*="score"]')]
-					.map(e => {
+			const bracket = {
+				matches: [],
+				teams: teams.map(t => {
+					return { name: t.name, seed: t.seed, region: regionMap[t.region], year: year }
+				})
+			};
+
+			[...document.querySelectorAll('[class*="score"]')]
+					.forEach(e => {
 						const match = parseInt(e.dataset.match);
 						const position = parseInt(e.dataset.position);
 						const score = parseInt(e.value);
 						const teamNumber = parseInt(e.dataset.team);
-						const team = teams[teamNumber];
 						let round = 0;
 						if (match < 32) {
 							round = 1;
@@ -298,28 +308,33 @@
 						} else if (match < 63) {
 							round = 6;
 						} else {
-							round = 7;
+							// Match 63 is used to display the champion, but we don't want
+							// to save that "match" to the database. The champion is the
+							// winner of round 6 (the championship round).
+							return;
 						}
 
-						return {
-							year: year,
-							match: match,
-							position: position,
-							teamName: team.name,
-							teamRegion: regionMap[team.region],
-							teamSeed: team.seed,
-							round: round,
-							score: score
-						};
+						const thisMatch = bracket.matches[match] = bracket.matches[match] || {};
+						thisMatch.year = year;
+						thisMatch.match = match;
+						thisMatch.round = round;
+
+						if (position === 0) {
+							thisMatch.team1 = teamNumber;
+							thisMatch.team1Score = score;
+						} else {
+							thisMatch.team2= teamNumber;
+							thisMatch.team2Score = score;
+						}
 					});
-			console.log(matches);
-			fetch('/api/match-position', {
+			console.log(bracket);
+			fetch('/api/bracket', {
 					method: 'POST',
 					headers: {
 						'Accept': 'application/json',
 						'Content-Type': 'application/json'
 					},
-					body: JSON.stringify(matches)
+					body: JSON.stringify(bracket)
 				})
 				.then(response => console.log(response));
 		});
