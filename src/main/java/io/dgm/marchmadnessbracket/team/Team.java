@@ -1,13 +1,16 @@
 package io.dgm.marchmadnessbracket.team;
 
+import io.dgm.marchmadnessbracket.bracket.TeamDto;
 import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "team")
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     private String name;
 
@@ -17,11 +20,21 @@ public class Team {
 
     private String region;
 
-    public int getId() {
+    public Team() {
+    }
+
+    public Team(TeamDto dto) {
+        this.name = dto.name().trim();
+        this.year = dto.year();
+        this.seed = dto.seed();
+        this.region = dto.region();
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
