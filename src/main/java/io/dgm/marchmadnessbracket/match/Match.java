@@ -36,6 +36,7 @@ public class Match {
     }
 
     public Match(MatchDto dto, List<Team> teams) {
+        this.year = dto.year();
         this.match = dto.match();
         this.round = dto.round();
 
