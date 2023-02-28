@@ -1,0 +1,906 @@
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+COPY public.team (id, name, year, seed, region) FROM stdin;
+0d66a121-7a32-4a23-a758-bd7e33a69d57	North Carolina	1991	1	east
+b963b922-895b-4319-aaf8-d24dec714ac2	Northeastern	1991	16	east
+f97dba53-f519-44e6-bbf7-7a1470cf4bbe	Princeton	1991	8	east
+3dc9fa90-5156-41b8-8615-8cd9e115c51c	Villanova	1991	9	east
+67375b10-54dc-4b5e-8c87-2d3164e5d0b7	Mississippi State	1991	5	east
+4ded7051-74ce-4f0b-b275-8ab3362a40f5	Eastern Michigan	1991	12	east
+efdb868f-10e2-43e7-b20b-8cb5aaf20292	UCLA	1991	4	east
+a1291c3b-4b0d-4971-82db-fbbe12689246	Penn State	1991	13	east
+be675690-252f-4221-990d-0099a0334421	NC State	1991	6	east
+25598a82-3ea8-4a92-92de-d53ba381aab7	Southern Miss	1991	11	east
+40cc7b30-37dc-4e02-aa84-bc4409db20aa	Oklahoma State	1991	3	east
+949b3c23-9834-467f-a02f-5adedf4c2043	New Mexico	1991	14	east
+b73a4ee0-e0f9-4c7f-beb9-b717b58621b9	Purdue	1991	7	east
+ceb7fdd1-be47-4bb1-9b99-33511c01133c	Temple	1991	10	east
+b4c24817-0a9c-430a-9334-e4ab71d8982e	Syracuse	1991	2	east
+be3d7333-4248-4f1b-a605-740e47f5d01e	Richmond	1991	15	east
+f035e2ba-9b85-4ea6-9e90-ad66d2532924	Arkansas	1991	1	southeast
+e5ad0006-fec8-46b3-8c88-8b13ac5193cd	Georgia State	1991	16	southeast
+b186eefa-fbdd-415c-9a40-e513f3b67b2d	Arizona State	1991	8	southeast
+74444d6b-fdcd-44fe-aaa2-d04aa33dd49a	Rutgers	1991	9	southeast
+379a11ee-9e6f-414a-874a-24e9b3802169	Wake Forest	1991	5	southeast
+2c82256b-ec0e-4f0a-af22-4c3ffd8be798	Louisiana Tech	1991	12	southeast
+b70814cd-cc95-4d00-9a33-517c2d2ecd12	Alabama	1991	4	southeast
+104e5480-f80d-4945-805a-0c5e6e9a4830	Murray State	1991	13	southeast
+70f0584f-1377-4ec9-85ac-73ba69a65bfa	Pittsburgh	1991	6	southeast
+5b32fad5-8ab3-4181-a605-83040eee2e85	Georgia	1991	11	southeast
+4e7401e1-ccd7-4653-9a34-7491a97bbca3	Kansas	1991	3	southeast
+351fad09-a932-489a-9610-a2c4e1695ee2	New Orleans	1991	14	southeast
+a7ce185a-d999-48d7-86e6-5bf5322e7a43	Florida State	1991	7	southeast
+dca3615a-bbae-4128-bcf7-30b2bac27b02	Southern California	1991	10	southeast
+7cab9d4e-e026-4218-a800-f1384fe58670	Indiana	1991	2	southeast
+3cf8b8c2-2f50-4210-b2d6-96f5fee0542f	Coastal Carolina	1991	15	southeast
+c88efbad-5980-4e53-9d7b-1528a6348270	Ohio State	1991	1	midwest
+1ea203b0-e5d6-4b67-8122-6820703383f4	Towson State	1991	16	midwest
+c5b83301-8cb1-4917-b1d5-9606897987d5	Georgia Tech	1991	8	midwest
+7438c869-be9c-495b-b716-f8c7f23bfc6b	DePaul	1991	9	midwest
+1c489add-fef4-4f46-b61f-834c62b90a03	Texas	1991	5	midwest
+a34626fc-cc9e-43f0-a360-86b463b150f7	Saint Peter's	1991	12	midwest
+321b45c0-f95c-4282-ab35-750efaf36f2f	St. John's	1991	4	midwest
+4d3228b6-b60c-4950-9195-792139f8678a	Northern Illinois	1991	13	midwest
+1541c464-c8ec-4d51-89bf-cc6732e6b517	LSU	1991	6	midwest
+b775da49-c8d1-4615-beee-ea045e110cec	Connecticut	1991	11	midwest
+a035d110-5344-40ac-b772-df32e1785a71	Nebraska	1991	3	midwest
+f9c11ed3-a303-43d2-a1d1-74cf40eac56d	Xavier	1991	14	midwest
+bae4710f-202a-49d7-b76e-b4ddcebc5557	Iowa	1991	7	midwest
+c590d2b0-2d4c-49a8-bf36-c40b5988dc57	East Tennessee State	1991	10	midwest
+2e38f7e5-58b0-48bb-9bb5-20bba466040f	Duke	1991	2	midwest
+17b1d56c-c03c-43ea-990e-159ed3054969	Northeast Louisiana	1991	15	midwest
+0de815d7-b40a-48da-8e27-c7fa0ca69f2e	UNLV	1991	1	west
+398e134a-6148-4f2b-a63b-7a1e4361da1f	Montana	1991	16	west
+18ae1013-6e03-48b8-a570-8d21e795ddc7	Georgetown	1991	8	west
+87475d6b-2b18-4c15-ba83-efa9dbeb61ea	Vanderbilt	1991	9	west
+933b77bb-ccf2-4c57-8100-3262a2fa6c43	Michigan State	1991	5	west
+5ecebd8e-8841-4190-9ad9-7334387ce237	Wisconsin–Green Bay	1991	12	west
+31e927ba-6e9d-4f27-80ac-135c4e690925	Utah	1991	4	west
+49799e61-53c9-4aa2-bcab-69a8eae0ce18	South Alabama	1991	13	west
+eacdca89-5ae8-4829-8ccc-ebd7fe2e817e	New Mexico State	1991	6	west
+10ab7417-0b58-4cb7-b155-c277f33e3785	Creighton	1991	11	west
+6cb2002f-81d8-4f3c-84e3-cc6613fa38f7	Seton Hall	1991	3	west
+e6505c2c-e64f-49da-bf02-011b88cb3095	Pepperdine	1991	14	west
+28b2ed1f-90e2-4b10-bd1a-415134d7f47a	Virginia	1991	7	west
+52ca1e4d-18be-4283-b1b3-045665f58483	BYU	1991	10	west
+47017a98-0c53-4931-94c8-dbc304ecdb45	Arizona	1991	2	west
+6dfb9672-1abc-4f95-9c3c-a8d474422177	Saint Francis (PA)	1991	15	west
+1b6dabaf-29f1-4bb3-b297-90f99a4f1326	Duke	1992	1	east
+8c370e97-6dfa-425a-bb7e-7f5c0dc12745	Campbell	1992	16	east
+05f7b51e-dd83-44a7-9769-cc587a63bb82	Texas	1992	8	east
+9a0e981f-903b-4435-97fb-758a30a4446e	Iowa	1992	9	east
+3abad3d7-fc1f-4ec0-9c90-bbc7d1bb9f47	Missouri	1992	5	east
+1bca1551-b544-4e45-a3f0-29582dbcea90	West Virginia	1992	12	east
+be9fff71-9862-4ec5-b039-5e8ff2f02980	Seton Hall	1992	4	east
+afb1ffec-f940-4306-ba8e-49efd59ddd51	La Salle	1992	13	east
+0ca1986c-4f4d-4d1d-9c67-bf7ca7be1ecb	Syracuse	1992	6	east
+d38e38b9-8b19-427d-bec2-78d405a4e04f	Princeton	1992	11	east
+7d3ac80c-8360-4b5b-84dc-de398c226044	Massachusetts	1992	3	east
+42d25f7c-9bee-43b0-8bc7-faf7912a89cd	Fordham	1992	14	east
+706dd244-481f-4f0e-9f69-798425e19ee6	Charlotte	1992	7	east
+77a15b2c-7525-4eaf-8829-7d029df6734b	Iowa State	1992	10	east
+96a034d1-0747-4922-9ca7-89d3d7264be8	Kentucky	1992	2	east
+b95c6a88-4170-4f64-81cd-26ea2e76fdf7	Old Dominion	1992	15	east
+b4140901-0a40-4908-ac14-5fbe68c77dc2	UCLA	1992	1	west
+307b3b52-b5b3-484b-93d7-d282315c930a	Robert Morris	1992	16	west
+b7191c26-2d34-4b89-ac74-c10634f9a605	Louisville	1992	8	west
+fa5f0d9b-0979-4fae-988b-041345b6fb40	Wake Forest	1992	9	west
+19ae9fcf-9f57-4fd2-ae11-8ab3815d1c28	DePaul	1992	5	west
+3f47a828-bd64-4b71-bff6-9e9ae118714d	New Mexico State	1992	12	west
+839d0dc1-83c8-4ab4-9e83-822413fafc98	Oklahoma	1992	4	west
+3c81622e-ecbd-4e61-be84-9c9358352f9d	Southwest Louisiana	1992	13	west
+d754602e-fea1-4140-9541-2bdd58191094	Georgetown	1992	6	west
+0484aa8f-78a7-43c2-9809-b79f3ab54a64	South Florida	1992	11	west
+508c18ee-0451-43d6-882a-6e55b76c6e24	Florida State	1992	3	west
+f8556cef-ca9a-4a3d-bcfd-de9be70e6b16	Montana	1992	14	west
+069d58e6-eec7-4ad4-8a62-97efe2b2a889	LSU	1992	7	west
+e372aea1-e51f-45dd-a1a1-57a54686c450	BYU	1992	10	west
+9a7c3b21-eb0e-4b73-a091-d6874c3c8027	Indiana	1992	2	west
+38b1fa33-c540-4fb9-8f76-cda183392bf5	Eastern Illinois	1992	15	west
+b620947b-c973-4d23-9c22-bf6f8a0e1484	Ohio St	1992	1	southeast
+dffa6fd1-5d1c-4723-aa7d-379cc7c1c4b7	Mississippi Valley State	1992	16	southeast
+03f5dad4-3342-4c51-8f95-d6bf688c5e54	Nebraska	1992	8	southeast
+080a85cc-6b88-4e73-b125-9f553765405b	Connecticut	1992	9	southeast
+d2f5f878-08f1-4895-9234-4a34e7c98329	Alabama	1992	5	southeast
+c153c9e2-abdc-4743-af2d-4b1e237f4da6	Stanford	1992	12	southeast
+228721ed-2cb2-4479-bc7a-895f7bfee214	North Carolina	1992	4	southeast
+3e74dddd-21a0-43b3-a9a4-024c1268adfe	Miami (OH)	1992	13	southeast
+95c98356-19ea-4a10-8478-94c1288a5024	Michigan	1992	6	southeast
+575afea3-2047-46ac-b1d3-a18d85cc50ed	Temple	1992	11	southeast
+08ea94ed-c6bf-4d19-b45c-98d1b1a32608	Arizona	1992	3	southeast
+64bdd73c-722d-423c-9ddc-4b2ba84a7dff	East Tennessee State	1992	14	southeast
+1e8f89ee-6d5e-49b8-968d-ff38a8e81543	St. John's	1992	7	southeast
+5c91948a-a7cf-440d-8df9-6fa20b0dfdf2	Tulane	1992	10	southeast
+1411a733-421b-49e8-8509-112faad71f79	Oklahoma State	1992	2	southeast
+1e35a1bc-6f05-41ce-8776-9c6aadb3e4bc	Georgia Southern	1992	15	southeast
+4567a573-4baf-4c91-a2b5-2e87baf64709	Kansas	1992	1	midwest
+6c631b16-a4ec-471e-83e2-ec905b1c014b	Howard	1992	16	midwest
+231d08b9-a4f7-45a1-8638-10981b1b6847	Evansville	1992	8	midwest
+6d33c531-d871-4411-be7c-2476fd222f12	UTEP	1992	9	midwest
+e5738a31-c21e-4c22-8ffc-37e8227bee32	Michigan State	1992	5	midwest
+eab58afe-70be-44d3-b2a4-0f094eece622	Southwest Missouri State	1992	12	midwest
+4a052986-951e-412e-8ac4-8f2dc0691053	Cincinnati	1992	4	midwest
+6c94471c-730c-4e41-b4af-ea228bff0e8c	Delaware	1992	13	midwest
+7e81c6cf-3f68-4189-b989-6b7f564c04e1	Memphis State	1992	6	midwest
+fbada6fb-6e33-4b96-ae52-d9131b195bf9	Pepperdine	1992	11	midwest
+33c3ab81-5bf4-4fe2-9dfb-37a906ab2cb8	Arkansas	1992	3	midwest
+f8555c0f-9d65-4aa5-9528-a10863b18b1f	Murray State	1992	14	midwest
+7492c725-544e-42a3-8802-ea3b92ee79c8	Georgia Tech	1992	7	midwest
+3ec1c477-e445-4b5e-bf0a-d673491bd34c	Houston	1992	10	midwest
+27997fcf-9e51-4850-9589-0f9dd6162bd6	USC	1992	2	midwest
+e95687aa-9429-401d-ace4-cacef0ac07dd	Northeast Louisiana	1992	15	midwest
+dff7cb43-f871-4eb9-ba41-301437568234	North Carolina	1993	1	east
+84b8727c-5a7b-48ab-bca9-b8118b57fa52	East Carolina	1993	16	east
+0cef284a-8ef4-4476-8ad3-a7a2c5cf94a5	Rhode Island	1993	8	east
+233ce575-3627-4aa0-9f17-aeee39d7f0a3	Purdue	1993	9	east
+4a54a989-75ac-4c01-bdcb-d3fb48810ce1	St. John's	1993	5	east
+df0bbcf5-96ca-4dec-8fe8-51dae49b9bf4	Texas Tech	1993	12	east
+1a228cb2-1ca6-41ef-8ca4-d7c845eb7c2b	Arkansas	1993	4	east
+c0caefdf-ab67-4545-ba0b-852dca0bf1f1	Holy Cross	1993	13	east
+9570b22d-30a3-4ae0-a936-771bd7587692	Virginia	1993	6	east
+a88caab3-f9d1-4453-a54d-f1cc75a06b22	Manhattan	1993	11	east
+395212c0-8cbf-47fb-8d8c-e4d969297302	Massachusetts	1993	3	east
+24e5e45c-2c60-4128-9d90-bd0242981088	Pennsylvania	1993	14	east
+84d331bb-3c23-48ea-a7ae-270770e3f293	New Mexico State	1993	7	east
+6009d7c7-e461-4647-95f5-f4025303baf0	Nebraska	1993	10	east
+aa32fa91-36df-413c-b80c-f789bf8cde44	Cincinnati	1993	2	east
+93cb38a9-b7f9-43c8-95bb-cce79c7ea191	Coppin State	1993	15	east
+11497fae-be5e-4985-b3d0-ce3bf5e7bffb	Indiana	1993	1	midwest
+5de46c56-b162-4d95-9516-556b254c5590	Wright State	1993	16	midwest
+522ddaea-76c6-4e39-ac93-ec8a24ffcef3	New Orleans	1993	8	midwest
+5b4e9f77-7e03-42cc-80d5-9323ee8f875c	Xavier	1993	9	midwest
+c27eb210-e53f-4196-aaf3-422253a693f5	Oklahoma State	1993	5	midwest
+bc01f7a3-a0db-47c1-a627-e632bcf456f0	Marquette	1993	12	midwest
+c965d4ff-364f-41c0-ab86-7f990119824d	Louisville	1993	4	midwest
+b07b1bf8-3b5e-466c-8bfd-ec72a337fdbd	Delaware	1993	13	midwest
+69ea1c26-113d-4b1a-96e3-046b55e76c8f	California	1993	6	midwest
+c03a045d-a08f-4233-b06b-651dd8ab758e	LSU	1993	11	midwest
+9c73c750-b600-41b5-9b22-2604917f1e06	Duke	1993	3	midwest
+76e8e123-5960-4a2a-b021-0d700e7497f6	Southern Illinois	1993	14	midwest
+dacecff8-4b05-474c-9975-36dcb8bb19e0	BYU	1993	7	midwest
+63d13ded-a147-4328-b833-3e7fcdcca344	SMU	1993	10	midwest
+80546844-661b-47f9-8652-0f99ec80b546	Kansas	1993	2	midwest
+23db991b-a0ad-4dbf-89d6-2d0c4ff96932	Ball State	1993	15	midwest
+ddbc3703-82c0-4f44-b3ff-d67820d23814	Kentucky	1993	1	southeast
+ba5ceb80-bd82-4c7e-9c23-c8e663fb4893	Rider	1993	16	southeast
+dbcfdace-0094-44f1-9b96-253d7efe1448	Utah	1993	8	southeast
+5fdba2e1-7259-4007-8cfe-40e35df14a46	Pittsburgh	1993	9	southeast
+a6e528e1-ea1d-4906-b77f-58f43fd5e6c0	Wake Forest	1993	5	southeast
+e797c7fb-cb4c-4e16-bf52-a059ca3ee9db	Chattanooga	1993	12	southeast
+e3ad24b3-2d47-4d15-afd6-b761feca0568	Iowa	1993	4	southeast
+64a2d68e-22b3-48fe-a103-db7f889bb6eb	Northeast Louisiana	1993	13	southeast
+7a90aab8-8bef-4795-8bb3-f3c55de96dc1	Kansas State	1993	6	southeast
+72a41ebf-7d0b-4656-9401-43a52398ab72	Tulane	1993	11	southeast
+96d57f77-d4a0-4e30-b717-816725dd5811	Florida State	1993	3	southeast
+b802a35d-f56b-4471-a9a6-8e3d1a0d147b	Evansville	1993	14	southeast
+75b697d0-e61f-4109-b1d1-1fc9a931ff73	Western Kentucky	1993	7	southeast
+6acdb9ba-120c-4f86-9530-ee2ce4a86a35	Memphis State	1993	10	southeast
+a0fb2afd-53bf-4382-8620-cb67599ee160	Seton Hall	1993	2	southeast
+c2877085-6563-43ea-852e-4a0ea32b49cb	Tennessee State	1993	15	southeast
+f3d915f5-675a-44ff-a174-d2144505b654	Michigan	1993	1	west
+208efe9a-316b-433f-a543-c1628bd1cc01	Coastal Carolina	1993	16	west
+e4f5bcb3-9d81-43eb-86ae-a4c7906d4136	Iowa State	1993	8	west
+8fdb0519-7155-4561-b934-64df324179e2	UCLA	1993	9	west
+a7f78e06-dcc2-4370-99aa-c82a2b94ca7a	New Mexico	1993	5	west
+0c4ea205-e3e6-4160-940a-703628e7f1dc	George Washington	1993	12	west
+b40c4813-ad31-4be4-a8df-e585168383d8	Georgia Tech	1993	4	west
+1a82e42e-c258-4825-91ec-5118ca1b2025	Southern	1993	13	west
+53f171bf-c488-4c03-8875-1a4a1ade762f	Illinois	1993	6	west
+88798c8e-b66e-4f55-8453-9393956058bb	Long Beach State	1993	11	west
+4bc330fc-ff8d-484e-abde-57222c4f5c0a	Vanderbilt	1993	3	west
+5b9a9b1f-88f4-4f5e-b81a-257ae41d67f6	Boise State	1993	14	west
+0fd8442e-52b0-4a98-80ee-a166ef20333e	Temple	1993	7	west
+0fc11bce-20e1-4e3d-a02b-a165efee2f17	Missouri	1993	10	west
+51eee504-121b-41eb-8855-2aa48de8bd83	Arizona	1993	2	west
+6020961f-3d1d-42b3-965d-0c156f8ea86e	Santa Clara	1993	15	west
+3971377d-e7e2-451d-af08-f49b1467d874	North Carolina	1994	1	east
+60ce06b4-c5be-4502-a0fd-3dc5d1e0e4ad	Liberty	1994	16	east
+ab3b5fbf-5046-4797-8a93-fba74570383e	Washington State	1994	8	east
+8cfadf05-79d7-4a22-8253-4535e6c77953	Boston College	1994	9	east
+65612c0d-b2dd-43fe-8c33-e40b4d15e34e	Indiana	1994	5	east
+7c6cc5a2-595d-42dd-87df-74b0ad9a477e	Ohio	1994	12	east
+ddfa91d2-a244-4c3b-9c3b-f51aa0426e51	Temple	1994	4	east
+22d6eea4-f8f6-4cc7-8de0-bb976a8136e3	Drexel	1994	13	east
+c9ee6f3b-6a72-4a3c-89dc-e555a32f7aac	Nebraska	1994	6	east
+c5bcaaeb-27d8-4667-92c6-7a002408fafa	Penn	1994	11	east
+dc50bc45-18db-4d5e-9b54-938c9a5f62a4	Florida	1994	3	east
+1f33eb60-cece-4c46-ac39-282991beda71	James Madison	1994	14	east
+f599ab30-5727-4364-8d13-3132d235be3c	UAB	1994	7	east
+97f50fab-f5ba-46f2-8c3d-b5910451c452	George Washington	1994	10	east
+6bb7acb5-6838-4809-9e09-3c899867a755	Connecticut	1994	2	east
+31a8f9a4-eb8c-495e-a015-34d62ddc03ae	Rider	1994	15	east
+417db52a-4d93-42f9-9061-bf4087d8890a	Purdue	1994	1	southeast
+f983d30f-5cc3-4ef4-8f38-1a7313909695	UCF	1994	16	southeast
+35baeaa1-beb1-4ed7-b4b3-86b314168564	Providence	1994	8	southeast
+11b04f1c-0aef-45a0-bafa-d02d83c44ff0	Alabama	1994	9	southeast
+5bc3a456-d8a5-4a02-84a7-0a9ec05a4efe	Wake Forest	1994	5	southeast
+619da958-8cd2-4f9e-bf36-dffe0de1af35	College of Charleston	1994	12	southeast
+fda44528-2bf8-411e-94ec-a5774c7f29f9	Kansas	1994	4	southeast
+5f5d7234-2b90-4024-ab5d-6362f9db777d	Chattanooga	1994	13	southeast
+2aded286-d8f5-442b-a592-d3276e2d2adb	Marquette	1994	6	southeast
+6fd3b0cf-8e8b-4da1-9bc3-143bc88979c9	Southwest Louisiana	1994	11	southeast
+e1b3eb3e-525b-4ce1-9eb8-2141b343f8da	Kentucky	1994	3	southeast
+0b469151-23f8-43be-8aad-637150ab7032	Tennessee State	1994	14	southeast
+d7d0c5cf-5e2d-4372-bd8c-f77c191feb51	Michigan State	1994	7	southeast
+2e7235bc-0be1-4f28-9ee6-89c18d518b5f	Seton Hall	1994	10	southeast
+642d0963-9b12-4ac1-8159-bfce8c03034e	Duke	1994	2	southeast
+1d959d33-abed-4296-8af8-093b211d8ad6	Texas Southern	1994	15	southeast
+ae18fd65-7ba1-49ed-a42f-033a3dce31bb	Arkansas	1994	1	midwest
+78435797-f297-48e4-82bd-4b16aaa1fc7c	North Carolina A&T	1994	16	midwest
+8bda1606-ecab-4f97-bd39-e16431b133c3	Illinois	1994	8	midwest
+2c06b707-3f87-465e-ab88-0cef1a48d6c5	Georgetown	1994	9	midwest
+88176124-3bea-4e40-8d22-56d0bc039271	UCLA	1994	5	midwest
+f2ae5591-449b-4508-98ec-0fbc48524e44	Tulsa	1994	12	midwest
+80836b80-443d-44d4-84e1-9eb481611873	Oklahoma State	1994	4	midwest
+6f0f5534-d8ab-418c-8f18-f88590c8133a	New Mexico State	1994	13	midwest
+b8f5dfe9-7cdd-4c3d-868a-4e3d88cbfce7	Texas	1994	6	midwest
+49846cb1-2df5-49d7-98ed-07d22b712f4a	Western Kentucky	1994	11	midwest
+30b592b4-3850-4360-ae5b-9023d38c0949	Michigan	1994	3	midwest
+750a29d4-624f-455a-8bbb-bafad2e21df5	Pepperdine	1994	14	midwest
+b7d52acb-0d81-466a-b4fe-200e5de84503	Saint Louis	1994	7	midwest
+4eba71fb-a4c1-4c27-bd56-826218fd2123	Maryland	1994	10	midwest
+f527efad-0033-443c-ad00-ecd4732aa58e	Massachusetts	1994	2	midwest
+da1c8b36-9538-46c6-9a50-1b5b5bb49446	Southwest Texas State	1994	15	midwest
+b82fdf5a-1fad-4ed4-b04d-943fa631764e	Missouri	1994	1	west
+ee0fe345-d9bc-462d-b3c8-a07bbdf6c20f	Navy	1994	16	west
+f01b6e6a-d895-43bd-8799-9ed0a5dd7d81	Cincinnati	1994	8	west
+044b2ef9-7e83-4e75-b632-029c8b12bc40	Wisconsin	1994	9	west
+b1d6062c-c9ff-4dcb-ba33-886e9bf9942f	California	1994	5	west
+6f789bb4-a993-4924-bbcc-585b18a96d4b	UW–Green Bay	1994	12	west
+3308d42b-13fe-44f3-a314-beefa8a13f95	Syracuse	1994	4	west
+199567a0-4776-44a7-a4b0-9ae640759387	Hawaii	1994	13	west
+8cf78e2e-316e-4cf5-90ff-963288551c53	Minnesota	1994	6	west
+0c6a6057-ad66-47a7-a17a-eee826c27f2a	Southern Illinois	1994	11	west
+24db1d99-c079-4d3b-8790-c6e54e56cf9e	Louisville	1994	3	west
+982e8b4c-e36f-44c9-8445-db2abce88f7e	Boise State	1994	14	west
+b423cf7d-57db-4093-b232-915de5aa8403	Virginia	1994	7	west
+a6747c22-2ce1-4141-b7c8-e2b2ed1a3c4b	New Mexico	1994	10	west
+d84188f5-122c-4b50-acdd-0caf4e9b472f	Arizona	1994	2	west
+5f486b16-f082-4a3e-a9b1-21d27c7363e1	Loyola (MD)	1994	15	west
+083d0d9d-8870-4d23-9f9c-3ff3c51c9e3a	Wake Forest	1995	1	east
+b1df9519-7c92-46c5-93e0-0e1ebde50c8d	North Carolina A&T	1995	16	east
+cf9b82c9-ad20-4ba8-a7a2-56811e193b65	Minnesota	1995	8	east
+e5093582-190b-4115-8b24-473f0f906723	Saint Louis	1995	9	east
+507e37fc-5610-4a88-9351-fa356701b93d	Alabama	1995	5	east
+3859e895-f055-4856-a660-0cd6daaba4ad	Penn	1995	12	east
+f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	Oklahoma State	1995	4	east
+aa897336-45ee-4d92-807a-0ce731b833e7	Drexel	1995	13	east
+890122a5-25c4-429c-bce1-d26ccf697bb8	Tulsa	1995	6	east
+a62465a4-4236-4c3c-9094-7cb72fdeb7b3	Illinois	1995	11	east
+03eb008e-0764-4b74-9ed6-283fb14f5b41	Villanova	1995	3	east
+d955d87a-34bd-455d-9d9d-561e98bdee11	Old Dominion	1995	14	east
+bf9775ab-9435-48e9-8189-abf96e190941	UNC Charlotte	1995	7	east
+6366f7ed-f069-432c-bb5d-c90c357f8db3	Stanford	1995	10	east
+a78e028e-1451-4526-91d5-c58df6e93720	Massachusetts	1995	2	east
+bc6c1e26-0ce8-496c-b464-415b5c1ecb2b	Saint Peter's	1995	15	east
+237e6195-ff0b-458e-8212-1ef43086a6d1	UCLA	1995	1	west
+bf047a29-4eb1-4616-9866-1cb1473f29ac	FIU	1995	16	west
+310e6784-38c4-4fff-8690-d0f5993e4bfb	Missouri	1995	8	west
+79ac4281-577b-41a6-bfe4-0740340de959	Indiana	1995	9	west
+531a8c51-5ea2-45c0-bd95-aad9cd9e968d	Mississippi State	1995	5	west
+17a16398-d293-4a4b-b4f2-22e1265bd9d2	Santa Clara	1995	12	west
+ffc78b38-61cf-49ca-81b6-2c528535ca44	Utah	1995	4	west
+a0603c76-ec8b-46e2-96ae-f3eaa7f5b26b	Long Beach State	1995	13	west
+6824cec4-2581-4f8d-afca-8a0cd5287a29	Oregon	1995	6	west
+3c7bde87-1e09-47e3-8921-c34f24e75844	Texas	1995	11	west
+c3e3e997-ec92-4424-8815-7187d90b978b	Maryland	1995	3	west
+6b8b6641-1ff8-4a02-8327-28490144ce1f	Gonzaga	1995	14	west
+ec0fe4aa-c226-41ae-ad93-3c81eed56e45	Cincinnati	1995	7	west
+96b3f473-2c98-49c2-899c-b5cd02e42864	Temple	1995	10	west
+08e84a29-a9e7-4408-bc19-fac93ac7b364	Connecticut	1995	2	west
+9baef25c-2fa9-4139-9921-432181f1c918	Chattanooga	1995	15	west
+9741f5d2-3ddf-4c96-ae1a-23499dc90da3	Kentucky	1995	1	southeast
+c539165a-e577-47a8-9e3c-aee0ed60dfd1	Mount St. Mary's	1995	16	southeast
+3ee5a2ee-fca4-4d42-9208-3e79707265eb	BYU	1995	8	southeast
+913038b4-658d-4486-a86b-e4b31095e8a9	Tulane	1995	9	southeast
+7365aa6b-fd7d-4c07-8de7-db4ca7e26e51	Arizona State	1995	5	southeast
+b3eac96f-1c89-40eb-b04e-3af0aa5190d2	Ball State	1995	12	southeast
+b3bf1835-7882-4aec-a0ab-fb6ff913631e	Oklahoma	1995	4	southeast
+131a9035-e890-4644-ada6-28dd9b3e2e05	Manhattan	1995	13	southeast
+fc5989eb-595e-4b35-ade9-ae7b412ed2f5	Georgetown	1995	6	southeast
+61e7f3eb-8bda-4060-8c32-3e2fb75413c3	Xavier	1995	11	southeast
+0a1b87b4-2f6a-4e4f-a7ec-5bc3d30b6581	Michigan State	1995	3	southeast
+79f6738c-7468-4971-b0c1-ed63f02437f3	Weber State	1995	14	southeast
+2ce73802-b70e-4b1f-bb5a-997480a6f13f	Iowa State	1995	7	southeast
+d4d5ff09-0cd0-453c-930c-2ca94d37a301	Florida	1995	10	southeast
+a87851f9-23ed-4518-9775-6635fc939beb	North Carolina	1995	2	southeast
+6280d513-11df-4989-b485-028685908a41	Murray State	1995	15	southeast
+6bb0b55a-ce6a-469d-a92c-35b732f01cb8	Kansas	1995	1	midwest
+0b07b67f-6cd1-4767-999e-5be6a649868e	Colgate	1995	16	midwest
+de972ec8-b72a-40cc-abf3-5421103585ed	Western Kentucky	1995	8	midwest
+5135cda5-7167-401b-aba0-f376697e1bf4	Michigan	1995	9	midwest
+822e35bf-31a7-4d0e-b36c-46b358640e44	Arizona	1995	5	midwest
+8388fc79-4501-4e70-b89b-958a1f812865	Miami (OH)	1995	12	midwest
+98f4a80d-a6a4-4c7d-bf1a-381fce53055b	Virginia	1995	4	midwest
+9bf68154-6e72-412e-8961-c56c18959309	Nicholls State	1995	13	midwest
+556d12ff-c7ea-4d3f-9956-d2036df373ce	Memphis	1995	6	midwest
+2442a597-173a-4e19-ad20-b6f46dd3e3d3	Louisville	1995	11	midwest
+2380fa24-ef01-4107-9328-6e7f0c5603ce	Purdue	1995	3	midwest
+f763159f-2cfe-4419-9183-39e9d86eb685	UW–Green Bay	1995	14	midwest
+fc98b484-3c97-499f-9172-1507ea149ce3	Syracuse	1995	7	midwest
+5444bfbc-7e09-45e1-a7a0-36675f0aa684	Southern Illinois	1995	10	midwest
+e41d05ec-10c0-4f32-9a87-d461abab77a2	Arkansas	1995	2	midwest
+83b344c3-b705-43f2-a2d6-2a2f6f1c2ac3	Texas Southern	1995	15	midwest
+4c3f9222-3917-4570-b3af-666a66818d76	Massachusetts	1996	1	east
+6029debe-d663-4868-a1f8-98d9c2f11361	UCF	1996	16	east
+841bb16d-4b3e-4ded-85ad-ce1421846037	Bradley	1996	8	east
+14ec4545-e69e-4ed1-846b-e42603ff9f7f	Stanford	1996	9	east
+aa337e21-9705-455b-a5a7-466e8f6a85b3	Penn State	1996	5	east
+68d0df8f-b1f8-42a6-ad39-12c628b132bc	Arkansas	1996	12	east
+262c9125-9339-4151-8431-ef940f3c2abf	Marquette	1996	4	east
+e889a5c1-8191-4740-bed0-5eecf66ad895	Monmouth	1996	13	east
+44f40b35-2915-40f2-b397-eb19503e9942	North Carolina	1996	6	east
+8d84f2d9-72ce-4081-8202-cf201accd595	New Orleans	1996	11	east
+9e03c83c-0313-4a60-9c3a-57139a305f12	Texas Tech	1996	3	east
+d65b1ee7-0ed2-4182-b535-4aa4bbe9e408	Northern Illinois	1996	14	east
+7423981c-bc51-49f9-94c2-ea4b73d3ff30	New Mexico	1996	7	east
+6626196d-0f1b-49a0-98a7-f8b86dbf0604	Kansas State	1996	10	east
+79fd66f5-4024-4031-bd24-db545428741a	Georgetown	1996	2	east
+3d7823fd-d804-47de-8e43-0c63980bc435	Mississippi Valley State	1996	15	east
+8dd2e3cb-e456-4367-9371-d0e6265a8155	Kentucky	1996	1	midwest
+1d3047cc-fced-44da-86f4-556e3589cfe6	San Jose State	1996	16	midwest
+9f0a1ca6-509f-4237-9893-5d92ac258fa1	UW–Green Bay	1996	8	midwest
+2fccb6be-1028-49da-b755-b5a592f76703	Virginia Tech	1996	9	midwest
+cba5a616-3b29-4fcd-a942-ecf92b986710	Iowa State	1996	5	midwest
+cd869b22-2aba-4b45-9cc9-d7dccc1b5d4b	California	1996	12	midwest
+e185a318-4298-48e1-b441-3fdf017e5e2f	Utah	1996	4	midwest
+899172ec-c9f2-425f-856e-e260e9630d44	Canisius	1996	13	midwest
+1c81f3b0-a4d4-4b01-a884-d78b29808af0	Louisville	1996	6	midwest
+c318ee80-e5c7-42dc-8fd1-f3fd43b3eb9a	Tulsa	1996	11	midwest
+3c6f0bde-ffe3-46ce-8803-e26a07b5f011	Villanova	1996	3	midwest
+9cbd03f7-6b15-4565-8824-e421eab4311d	Portland	1996	14	midwest
+a760618a-80d5-4c52-9ba2-3edede42d79d	Michigan	1996	7	midwest
+b4dc2d35-8f82-49f2-a6a4-1ab9dc6167cc	Texas	1996	10	midwest
+08a1cda6-2364-4dce-bc84-a5c2eed11b74	Wake Forest	1996	2	midwest
+ec3205fe-55d8-49be-8629-c377125a8ad1	Northeast Louisiana	1996	15	midwest
+c866bdcd-883d-4d33-ac60-dcf2424cc5a4	Connecticut	1996	1	southeast
+4b505b40-487d-40fd-9c80-01a25d9d95a5	Colgate	1996	16	southeast
+aef45d48-bd89-4011-a131-a08e7e353325	Duke	1996	8	southeast
+86a53cb2-b25f-4a77-a7fd-c37dce50eaf7	Eastern Michigan	1996	9	southeast
+277a8eb4-3668-4ab8-99fd-a88076946ef1	Mississippi State	1996	5	southeast
+2cdcaaaf-ed03-4a4f-8ae7-28c9281830f5	VCU	1996	12	southeast
+963ff3ff-0673-4ca3-a059-2dcf3084724b	UCLA	1996	4	southeast
+1723d557-2f3a-4ce9-9ec2-96a5c020502e	Princeton	1996	13	southeast
+800533c8-97e7-41b1-878b-c3c8fbaee7f4	Indiana	1996	6	southeast
+de0dff94-55af-4b8d-8b4f-bd1437fb8d5c	Boston College	1996	11	southeast
+06010d14-75fc-4652-b5a8-29f4754b6eb1	Georgia Tech	1996	3	southeast
+257098bc-ef63-492b-acf4-2b9f096f4359	Austin Peay	1996	14	southeast
+d0a3ba6e-c3cf-42c8-9afc-e79ebce1d0cd	Temple	1996	7	southeast
+75f38d05-9429-4b5e-bf3d-25e39d4775d0	Oklahoma	1996	10	southeast
+0452a188-6d3a-4eaa-9168-638a89ee6ae6	Cincinnati	1996	2	southeast
+56ec3c8c-6561-4a71-b912-2946af87fea2	UNC Greensboro	1996	15	southeast
+3e7c39cd-b410-400a-b731-6d9a7a78ec42	Purdue	1996	1	west
+027fca9e-9450-4010-b2a5-c332e8decd47	Western Carolina	1996	16	west
+1dfa4838-6b30-44bc-8242-8b809529863b	Georgia	1996	8	west
+0e0e4e4d-a641-4d09-b162-606393cf769b	Clemson	1996	9	west
+c49f14ca-7a42-4c6a-a3ae-905e317c95e5	Memphis	1996	5	west
+43c91c86-ad37-4b7b-9ffa-a24de52f5000	Drexel	1996	12	west
+a2a1a50f-2aa8-4e57-a919-161dcb756020	Syracuse	1996	4	west
+e1de114a-7762-405a-9aaa-d88f1e691580	Montana State	1996	13	west
+e3b67e40-09d8-4387-b22c-48bbd7b1da02	Iowa	1996	6	west
+c5a427eb-dd84-4397-be98-d06bc31211fe	George Washington	1996	11	west
+8e614b38-8504-4fd5-8a68-8aef9bd506f2	Arizona	1996	3	west
+bb1bf51a-731c-4fcb-a94c-223e5d6fce23	Valparaiso	1996	14	west
+2d7fe116-489d-44d4-9dda-6120eecb404a	Maryland	1996	7	west
+1ab0e813-99ef-47dd-b844-96f182e2bee2	Santa Clara	1996	10	west
+d35851e0-29eb-4330-993a-52012d5172c7	Kansas	1996	2	west
+a93a4320-72ac-4d66-8e66-03f585f6b9aa	South Carolina State	1996	15	west
+313b6140-228e-460d-9ab4-c18e2ad5577f	North Carolina	1997	1	east
+88e3675c-4d6b-4dc8-b609-7b09dd0bff20	Fairfield	1997	16	east
+8362a6c2-ea51-43b8-8b44-7ac59c9f6eb6	Indiana	1997	8	east
+58f7ca24-2cba-4367-a15c-f01f41417567	Colorado	1997	9	east
+d061eb88-02fe-405c-9900-1e3a6bf241e3	California	1997	5	east
+e7277d29-f000-4873-92d8-0ed00295029e	Princeton	1997	12	east
+5dafd57f-6720-4eab-bb8c-05f39431d78a	Villanova	1997	4	east
+41201234-6bf5-4d8e-b6d7-d7b5bb507e60	Long Island	1997	13	east
+3b15ea32-f03d-48d2-b708-b505e4909f83	Louisville	1997	6	east
+a32b0f4c-a39c-4076-bb51-1e12b182dba8	Massachusetts	1997	11	east
+63432c72-4379-44c5-8afa-70cf3f42faf9	New Mexico	1997	3	east
+2ebe4e87-e5a0-41bc-879e-9e0d7ff0ceb4	Old Dominion	1997	14	east
+a894800b-be3d-4792-9340-ca84091b20f9	Wisconsin	1997	7	east
+e582bd3e-8bea-4c83-a186-5510662d0b7f	Texas	1997	10	east
+80039d43-2ae4-4800-b1ce-32c35824ff43	South Carolina	1997	2	east
+12de75f0-88e2-4c64-bfb2-7644fda2f09a	Coppin State	1997	15	east
+ecf4d782-f5fa-435e-ac8d-d8e561e8be54	Kansas	1997	1	southeast
+c551beef-4a44-44fa-bb64-d91dd0a0e997	Jackson State	1997	16	southeast
+937259d6-68f8-463e-b0a3-8b548b169a29	Purdue	1997	8	southeast
+75a8a0e0-ffd9-487e-80b0-e0acf94bafee	Rhode Island	1997	9	southeast
+cc11d84b-f357-4577-92fb-7e1394af8cc1	Maryland	1997	5	southeast
+9494fe88-8ca7-469e-845d-fba5d459738b	College of Charleston	1997	12	southeast
+8b796197-24ab-4c48-a300-9161c7e9de18	Arizona	1997	4	southeast
+c232a8f1-a189-47fe-abc8-1d8bc0a5d92e	South Alabama	1997	13	southeast
+55081e51-2061-4736-908b-2084611d95f0	Illinois	1997	6	southeast
+8751eba3-4a04-4ccc-9722-6471aee5047b	Southern California	1997	11	southeast
+fdba59b4-5ec6-4b11-840d-a5f867d29382	Georgia	1997	3	southeast
+5270683b-0337-4f6a-8a93-f7bdf5720f0b	Chattanooga	1997	14	southeast
+d944d1fd-196d-4881-b186-9cf015ac5506	Marquette	1997	7	southeast
+33c45a7a-895f-41a6-b3ee-2e2e1ad62dbb	Providence	1997	10	southeast
+6d54e8ba-d82d-448e-b424-096c90651dcb	Duke	1997	2	southeast
+68e34dca-6fa7-4314-9644-2100e71e43bd	Murray State	1997	15	southeast
+34f5881e-5d79-45da-adaa-314b70bfcab3	Minnesota	1997	1	midwest
+112f48a8-3c49-4c58-82f3-657b88006b3d	Southwest Texas State	1997	16	midwest
+28d764c3-05fe-4139-8139-194eaa93d919	Ole Miss	1997	8	midwest
+101ec22a-c0b3-453f-a088-b1d3433c111f	Temple	1997	9	midwest
+be51f446-bdc0-4518-936f-a8b7adeb598b	Tulsa	1997	5	midwest
+f8c9aef8-4cda-4cae-af61-5382a09c58fa	Boston University	1997	12	midwest
+97cd4c3f-36a5-47f1-b12e-42f7971fd005	Clemson	1997	4	midwest
+53b8b4ae-93fc-41c7-9bda-e68d76123cf2	Miami (OH)	1997	13	midwest
+3992451d-7ab9-42e6-b24a-ec00ce74d12e	Iowa State	1997	6	midwest
+c9dd4326-d531-4400-b9d9-9b7c2761076d	Illinois State	1997	11	midwest
+d64601fd-4ca7-4cc8-8cce-2e622faceff6	Cincinnati	1997	3	midwest
+610d3c9f-28d0-4576-944e-78d4de3e30e3	Butler	1997	14	midwest
+c88afed8-7005-4313-958c-60b3878109c7	Xavier	1997	7	midwest
+62e19f30-a8e1-4b1d-9fae-2efa61d50811	Vanderbilt	1997	10	midwest
+79a65ecb-a102-4e7e-b83f-08264fac220a	UCLA	1997	2	midwest
+0d046aef-687d-47a4-92f4-016f8d481427	Charleston Southern	1997	15	midwest
+abfca733-352d-40a1-b32b-9c6a57c7b1c2	Kentucky	1997	1	west
+c6b26b13-c63d-4cbb-b8e3-3fd5e0736ebf	Montana	1997	16	west
+4a29ffcc-86de-4e37-9aed-9d027233389b	Iowa	1997	8	west
+8fc1911d-34b9-48f6-a3fb-9c9d98cab204	Virginia	1997	9	west
+8e91a63f-9f7e-4c33-a9c2-90426e864d74	Boston College	1997	5	west
+efe90e73-f9b1-4199-8a07-303a516d3136	Valparaiso	1997	12	west
+b90f4851-61e5-429e-b45d-fcb8033c8bbf	Saint Joseph's	1997	4	west
+33158f28-3f51-442a-abc2-dab72a60bfe4	Pacific	1997	13	west
+8d501712-c896-4d91-a36f-5969992c85ef	Stanford	1997	6	west
+972d67e0-4c32-4ba4-b5f2-899b897f7df9	Oklahoma	1997	11	west
+353c2336-151c-4840-af9e-4c643249da57	Wake Forest	1997	3	west
+2c2b1d11-74ce-4bec-968c-462395e3258d	Saint Mary's	1997	14	west
+1c2fe29d-527a-45f0-99e6-49292afa54d0	Charlotte	1997	7	west
+6eafe170-0ad5-470c-9ad9-827d5abf3c28	Georgetown	1997	10	west
+d6fb502f-e258-44b0-91e7-6ae0af969268	Utah	1997	2	west
+463c4c95-927b-483e-8dd8-accaca1158a6	Navy	1997	15	west
+\.
+
+
+COPY public.match (id, year, match, round, team_1, team_1_score, team_2, team_2_score) FROM stdin;
+83c17e4b-a897-4340-bb15-76261fd6d435	1991	50	3	f035e2ba-9b85-4ea6-9e90-ad66d2532924	93	b70814cd-cc95-4d00-9a33-517c2d2ecd12	70
+2e094c77-31d0-40ef-9c51-7e327a7592ce	1991	51	3	4e7401e1-ccd7-4653-9a34-7491a97bbca3	83	7cab9d4e-e026-4218-a800-f1384fe58670	65
+c423cd41-3904-42ab-ab47-2e831c86f032	1991	52	3	c88efbad-5980-4e53-9d7b-1528a6348270	74	321b45c0-f95c-4282-ab35-750efaf36f2f	91
+14a3f68d-bba1-429a-9adb-b67191bd865a	1991	53	3	b775da49-c8d1-4615-beee-ea045e110cec	67	2e38f7e5-58b0-48bb-9bb5-20bba466040f	81
+58ef1ca3-8659-4ead-83fb-54a3b1d92d7d	1991	54	3	0de815d7-b40a-48da-8e27-c7fa0ca69f2e	83	31e927ba-6e9d-4f27-80ac-135c4e690925	66
+f97cd563-46d1-45db-8303-edd34a4b29c3	1991	55	3	6cb2002f-81d8-4f3c-84e3-cc6613fa38f7	81	47017a98-0c53-4931-94c8-dbc304ecdb45	77
+33225349-fb6f-4af7-b767-0ca47fa1dafb	1991	56	4	0d66a121-7a32-4a23-a758-bd7e33a69d57	75	ceb7fdd1-be47-4bb1-9b99-33511c01133c	72
+610b02a1-4bff-46bf-89e7-3103e1dce6e7	1991	57	4	f035e2ba-9b85-4ea6-9e90-ad66d2532924	81	4e7401e1-ccd7-4653-9a34-7491a97bbca3	93
+f4391dbd-99b9-4143-9a0b-11f1f8c27246	1991	58	4	321b45c0-f95c-4282-ab35-750efaf36f2f	61	2e38f7e5-58b0-48bb-9bb5-20bba466040f	78
+cbee86c4-cf47-444f-ae63-ad70ef8626a5	1991	59	4	0de815d7-b40a-48da-8e27-c7fa0ca69f2e	77	6cb2002f-81d8-4f3c-84e3-cc6613fa38f7	65
+c579ec48-8374-4bc4-ad38-55fb1e74fe4a	1991	60	5	0d66a121-7a32-4a23-a758-bd7e33a69d57	73	4e7401e1-ccd7-4653-9a34-7491a97bbca3	79
+fb7dbb37-b573-486f-9501-1236a444e2d1	1991	61	5	2e38f7e5-58b0-48bb-9bb5-20bba466040f	79	0de815d7-b40a-48da-8e27-c7fa0ca69f2e	77
+d0eb1eef-a790-4561-96a8-e6e261299e3f	1991	0	1	0d66a121-7a32-4a23-a758-bd7e33a69d57	101	b963b922-895b-4319-aaf8-d24dec714ac2	66
+57fa5b1a-0817-4ddb-a8f0-c64f7a15ae7d	1991	1	1	f97dba53-f519-44e6-bbf7-7a1470cf4bbe	48	3dc9fa90-5156-41b8-8615-8cd9e115c51c	50
+a0e2fa3d-8d03-444d-a749-d6128567a913	1991	2	1	67375b10-54dc-4b5e-8c87-2d3164e5d0b7	56	4ded7051-74ce-4f0b-b275-8ab3362a40f5	76
+98a88ea9-9a8d-40b0-aaaa-c4495abfe93e	1991	3	1	efdb868f-10e2-43e7-b20b-8cb5aaf20292	69	a1291c3b-4b0d-4971-82db-fbbe12689246	74
+1beede99-f6a1-4392-a736-3473e4a989ad	1991	4	1	be675690-252f-4221-990d-0099a0334421	114	25598a82-3ea8-4a92-92de-d53ba381aab7	85
+41e93f64-41b0-4541-8c93-7e3904bbc9d4	1991	5	1	40cc7b30-37dc-4e02-aa84-bc4409db20aa	67	949b3c23-9834-467f-a02f-5adedf4c2043	54
+63f9224c-57e4-4097-bcf8-327384f11bab	1991	6	1	b73a4ee0-e0f9-4c7f-beb9-b717b58621b9	63	ceb7fdd1-be47-4bb1-9b99-33511c01133c	80
+45cc0b1d-4bbf-4d53-8aea-6da9818fd354	1991	7	1	b4c24817-0a9c-430a-9334-e4ab71d8982e	69	be3d7333-4248-4f1b-a605-740e47f5d01e	73
+14fc7eff-2d60-4b00-8093-93853e3876f9	1991	8	1	f035e2ba-9b85-4ea6-9e90-ad66d2532924	117	e5ad0006-fec8-46b3-8c88-8b13ac5193cd	76
+372e3a17-ead4-46d9-9064-9773feba0c2b	1991	9	1	b186eefa-fbdd-415c-9a40-e513f3b67b2d	79	74444d6b-fdcd-44fe-aaa2-d04aa33dd49a	76
+4d733a7c-071e-4bec-b813-66c15ba06310	1991	10	1	379a11ee-9e6f-414a-874a-24e9b3802169	71	2c82256b-ec0e-4f0a-af22-4c3ffd8be798	65
+f013ad76-809b-4a70-83d7-0b15cfb4b6c0	1991	11	1	b70814cd-cc95-4d00-9a33-517c2d2ecd12	89	104e5480-f80d-4945-805a-0c5e6e9a4830	79
+3bbf59cf-c0b3-4e76-a864-7fd9d26d2eb5	1991	12	1	70f0584f-1377-4ec9-85ac-73ba69a65bfa	76	5b32fad5-8ab3-4181-a605-83040eee2e85	68
+aca3628d-607b-44f8-b18d-abda05af5a3e	1991	13	1	4e7401e1-ccd7-4653-9a34-7491a97bbca3	55	351fad09-a932-489a-9610-a2c4e1695ee2	49
+cb95d24a-7af3-42fd-b2e9-ab463cbe4f82	1991	14	1	a7ce185a-d999-48d7-86e6-5bf5322e7a43	75	dca3615a-bbae-4128-bcf7-30b2bac27b02	72
+0e454fe7-07d6-4bb4-a85e-84ecb7f029d6	1991	15	1	7cab9d4e-e026-4218-a800-f1384fe58670	79	3cf8b8c2-2f50-4210-b2d6-96f5fee0542f	69
+304a3806-21c7-4cff-86a0-38e9e5b6e356	1991	16	1	c88efbad-5980-4e53-9d7b-1528a6348270	97	1ea203b0-e5d6-4b67-8122-6820703383f4	86
+bbd2ee8b-661f-43ff-a980-eb8ce04fb874	1991	17	1	c5b83301-8cb1-4917-b1d5-9606897987d5	87	7438c869-be9c-495b-b716-f8c7f23bfc6b	70
+1d870407-33df-4d93-b118-da3f3771584e	1991	18	1	1c489add-fef4-4f46-b61f-834c62b90a03	73	a34626fc-cc9e-43f0-a360-86b463b150f7	65
+d542db1b-e2fb-435b-8dfd-8d5ef9512194	1991	19	1	321b45c0-f95c-4282-ab35-750efaf36f2f	75	4d3228b6-b60c-4950-9195-792139f8678a	68
+437d3e35-ace7-46db-8cce-5c671cf10bbe	1991	20	1	1541c464-c8ec-4d51-89bf-cc6732e6b517	62	b775da49-c8d1-4615-beee-ea045e110cec	79
+5da9a8ed-26d6-4f77-b450-57c61478b99f	1991	21	1	a035d110-5344-40ac-b772-df32e1785a71	84	f9c11ed3-a303-43d2-a1d1-74cf40eac56d	89
+fdaaae2d-357d-479c-817e-d2b9539d6a93	1991	22	1	bae4710f-202a-49d7-b76e-b4ddcebc5557	76	c590d2b0-2d4c-49a8-bf36-c40b5988dc57	73
+ccc7f5fe-190c-4ecf-8577-a22fc7511edd	1991	23	1	2e38f7e5-58b0-48bb-9bb5-20bba466040f	102	17b1d56c-c03c-43ea-990e-159ed3054969	73
+a9d3d680-8aeb-48c7-9ee6-1718b3c13501	1991	24	1	0de815d7-b40a-48da-8e27-c7fa0ca69f2e	99	398e134a-6148-4f2b-a63b-7a1e4361da1f	65
+f9f0c66e-0bb9-4a78-9ac9-7f31f6bd09de	1991	25	1	18ae1013-6e03-48b8-a570-8d21e795ddc7	70	87475d6b-2b18-4c15-ba83-efa9dbeb61ea	60
+dcc53f3b-188c-44b5-8964-7ce486bc6f30	1991	26	1	933b77bb-ccf2-4c57-8100-3262a2fa6c43	60	5ecebd8e-8841-4190-9ad9-7334387ce237	58
+0e61945b-0abe-4961-8efd-257688e2c1f3	1991	27	1	31e927ba-6e9d-4f27-80ac-135c4e690925	82	49799e61-53c9-4aa2-bcab-69a8eae0ce18	72
+55368396-2322-463a-87ba-58793fe5fa85	1991	28	1	eacdca89-5ae8-4829-8ccc-ebd7fe2e817e	56	10ab7417-0b58-4cb7-b155-c277f33e3785	64
+46a24bd3-0c6b-40e3-9305-d0e43303b546	1991	29	1	6cb2002f-81d8-4f3c-84e3-cc6613fa38f7	71	e6505c2c-e64f-49da-bf02-011b88cb3095	51
+6086ac3a-d204-4026-ba8a-9ea54df66d45	1991	30	1	28b2ed1f-90e2-4b10-bd1a-415134d7f47a	48	52ca1e4d-18be-4283-b1b3-045665f58483	61
+67282263-5328-4037-aa37-322bb7d63691	1991	31	1	47017a98-0c53-4931-94c8-dbc304ecdb45	93	6dfb9672-1abc-4f95-9c3c-a8d474422177	80
+24a1a71d-191d-41f9-b7ef-c9a450451897	1991	32	2	0d66a121-7a32-4a23-a758-bd7e33a69d57	84	3dc9fa90-5156-41b8-8615-8cd9e115c51c	69
+e970a4c0-0a4e-404d-9dd7-d16a01b5cf58	1991	33	2	4ded7051-74ce-4f0b-b275-8ab3362a40f5	71	a1291c3b-4b0d-4971-82db-fbbe12689246	68
+8e701b0b-28a5-4444-8d56-d4a946db5591	1991	34	2	be675690-252f-4221-990d-0099a0334421	64	40cc7b30-37dc-4e02-aa84-bc4409db20aa	73
+5ce7a6b6-6974-483d-bd19-8c7bcb61e854	1991	35	2	ceb7fdd1-be47-4bb1-9b99-33511c01133c	77	be3d7333-4248-4f1b-a605-740e47f5d01e	64
+9e0fcc84-e665-4f44-9170-0758ffbf2c88	1991	36	2	f035e2ba-9b85-4ea6-9e90-ad66d2532924	97	b186eefa-fbdd-415c-9a40-e513f3b67b2d	90
+808e341d-3d23-4723-9025-aac1d9573e6c	1991	37	2	379a11ee-9e6f-414a-874a-24e9b3802169	88	b70814cd-cc95-4d00-9a33-517c2d2ecd12	96
+efe516cf-73d0-4651-90c5-7178d7b982ca	1991	38	2	70f0584f-1377-4ec9-85ac-73ba69a65bfa	66	4e7401e1-ccd7-4653-9a34-7491a97bbca3	77
+227774d5-dcf0-43a7-8599-ea7af9e94594	1991	39	2	a7ce185a-d999-48d7-86e6-5bf5322e7a43	60	7cab9d4e-e026-4218-a800-f1384fe58670	82
+1e2788e0-96c5-4adb-99c1-dae4370be143	1991	40	2	c88efbad-5980-4e53-9d7b-1528a6348270	65	c5b83301-8cb1-4917-b1d5-9606897987d5	61
+e291d27c-3c4e-405c-b5e1-1f22884af7cb	1991	41	2	1c489add-fef4-4f46-b61f-834c62b90a03	76	321b45c0-f95c-4282-ab35-750efaf36f2f	84
+bab1958a-6ecf-456c-bfe1-d848d5715c6a	1991	42	2	b775da49-c8d1-4615-beee-ea045e110cec	66	f9c11ed3-a303-43d2-a1d1-74cf40eac56d	50
+15a149d3-7c6b-4290-8625-0a695b8e332d	1991	43	2	bae4710f-202a-49d7-b76e-b4ddcebc5557	70	2e38f7e5-58b0-48bb-9bb5-20bba466040f	85
+feee1bdf-4d02-4746-81a0-4719a9ea591e	1991	44	2	0de815d7-b40a-48da-8e27-c7fa0ca69f2e	62	18ae1013-6e03-48b8-a570-8d21e795ddc7	54
+34e88abc-612b-4265-867a-2c747355ba74	1991	45	2	933b77bb-ccf2-4c57-8100-3262a2fa6c43	84	31e927ba-6e9d-4f27-80ac-135c4e690925	85
+8132af5c-b3c5-4ee5-b9a9-5526c2d588fb	1991	46	2	10ab7417-0b58-4cb7-b155-c277f33e3785	69	6cb2002f-81d8-4f3c-84e3-cc6613fa38f7	81
+8355354b-fb02-484d-99f1-b3cbb4eef462	1991	47	2	52ca1e4d-18be-4283-b1b3-045665f58483	61	47017a98-0c53-4931-94c8-dbc304ecdb45	76
+c71b215c-dcd2-4028-8034-49b320c32c7e	1991	48	3	0d66a121-7a32-4a23-a758-bd7e33a69d57	93	4ded7051-74ce-4f0b-b275-8ab3362a40f5	67
+36e7d0e4-e672-4bba-b6e1-23dc264f568d	1991	49	3	40cc7b30-37dc-4e02-aa84-bc4409db20aa	63	ceb7fdd1-be47-4bb1-9b99-33511c01133c	72
+ee0ea7f4-ac53-44c4-be11-fdba3dcce55f	1991	62	6	4e7401e1-ccd7-4653-9a34-7491a97bbca3	65	2e38f7e5-58b0-48bb-9bb5-20bba466040f	72
+45c51b1b-77ed-4d89-a2fb-3024b6d2c96c	1992	0	1	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	82	8c370e97-6dfa-425a-bb7e-7f5c0dc12745	56
+6aa61f28-5e0f-47d8-9efa-e02bd2b5dc91	1992	1	1	05f7b51e-dd83-44a7-9769-cc587a63bb82	92	9a0e981f-903b-4435-97fb-758a30a4446e	98
+8db49db9-e58a-4392-8da8-54babbd9acff	1992	2	1	3abad3d7-fc1f-4ec0-9c90-bbc7d1bb9f47	89	1bca1551-b544-4e45-a3f0-29582dbcea90	78
+6daf9680-6900-4e59-936f-0133dbb32f0f	1992	3	1	be9fff71-9862-4ec5-b039-5e8ff2f02980	78	afb1ffec-f940-4306-ba8e-49efd59ddd51	76
+5fc24c91-c86c-47b1-a92a-83331b1849a2	1992	4	1	0ca1986c-4f4d-4d1d-9c67-bf7ca7be1ecb	51	d38e38b9-8b19-427d-bec2-78d405a4e04f	43
+cb6f4a56-9c9e-4e76-bbf7-85944566a180	1992	5	1	7d3ac80c-8360-4b5b-84dc-de398c226044	85	42d25f7c-9bee-43b0-8bc7-faf7912a89cd	58
+6e9920e1-dfca-4f46-9214-7192391f339c	1992	6	1	706dd244-481f-4f0e-9f69-798425e19ee6	74	77a15b2c-7525-4eaf-8829-7d029df6734b	76
+9c237866-23fe-43ab-848c-d3d596ea45c4	1992	7	1	96a034d1-0747-4922-9ca7-89d3d7264be8	88	b95c6a88-4170-4f64-81cd-26ea2e76fdf7	69
+42416e7d-e800-4972-af88-26969849c2c6	1992	8	1	b4140901-0a40-4908-ac14-5fbe68c77dc2	73	307b3b52-b5b3-484b-93d7-d282315c930a	53
+76ee6853-cbbd-4172-8bbf-ff39501b45dd	1992	9	1	b7191c26-2d34-4b89-ac74-c10634f9a605	81	fa5f0d9b-0979-4fae-988b-041345b6fb40	58
+b2a9072a-6bb6-49b9-b530-92ca9b761e9b	1992	10	1	19ae9fcf-9f57-4fd2-ae11-8ab3815d1c28	73	3f47a828-bd64-4b71-bff6-9e9ae118714d	81
+73b6c2b1-730a-4fa0-9c5b-98850b2184b9	1992	11	1	839d0dc1-83c8-4ab4-9e83-822413fafc98	83	3c81622e-ecbd-4e61-be84-9c9358352f9d	87
+ecd63ef5-c2fe-4a43-98f9-c3e666300a84	1992	12	1	d754602e-fea1-4140-9541-2bdd58191094	75	0484aa8f-78a7-43c2-9809-b79f3ab54a64	60
+889645ed-d2f3-4464-a4cf-eb1faf2025d4	1992	13	1	508c18ee-0451-43d6-882a-6e55b76c6e24	78	f8556cef-ca9a-4a3d-bcfd-de9be70e6b16	68
+a25e4bb6-bd96-41ba-ae3a-f69e101b1b9e	1992	14	1	069d58e6-eec7-4ad4-8a62-97efe2b2a889	94	e372aea1-e51f-45dd-a1a1-57a54686c450	83
+5945dc79-86b8-4dea-9da5-215e7b879a47	1992	15	1	9a7c3b21-eb0e-4b73-a091-d6874c3c8027	94	38b1fa33-c540-4fb9-8f76-cda183392bf5	55
+e48bcac1-de44-4f9b-85d7-798d75001395	1992	16	1	b620947b-c973-4d23-9c22-bf6f8a0e1484	83	dffa6fd1-5d1c-4723-aa7d-379cc7c1c4b7	56
+108b97b8-b11d-4d89-93e2-de2dead17cab	1992	17	1	03f5dad4-3342-4c51-8f95-d6bf688c5e54	65	080a85cc-6b88-4e73-b125-9f553765405b	86
+426b5245-cf71-45db-94cc-c4f9d63a8e59	1992	18	1	d2f5f878-08f1-4895-9234-4a34e7c98329	80	c153c9e2-abdc-4743-af2d-4b1e237f4da6	75
+8cf89105-aa6e-4796-b11c-3f7d7c6b1eae	1992	19	1	228721ed-2cb2-4479-bc7a-895f7bfee214	68	3e74dddd-21a0-43b3-a9a4-024c1268adfe	63
+1368d883-6039-41ac-a538-c8cb3e9d0e95	1992	20	1	95c98356-19ea-4a10-8478-94c1288a5024	73	575afea3-2047-46ac-b1d3-a18d85cc50ed	66
+9bc5747c-4844-43ac-807b-d47e047e8a88	1992	21	1	08ea94ed-c6bf-4d19-b45c-98d1b1a32608	80	64bdd73c-722d-423c-9ddc-4b2ba84a7dff	87
+85bff76e-ff95-44ee-96f0-b92dd1ef4b79	1992	22	1	1e8f89ee-6d5e-49b8-968d-ff38a8e81543	57	5c91948a-a7cf-440d-8df9-6fa20b0dfdf2	61
+74371680-c379-46c7-808f-2b38990c188e	1992	23	1	1411a733-421b-49e8-8509-112faad71f79	100	1e35a1bc-6f05-41ce-8776-9c6aadb3e4bc	73
+e7223783-1951-44fd-8790-7d158168c732	1992	24	1	4567a573-4baf-4c91-a2b5-2e87baf64709	100	6c631b16-a4ec-471e-83e2-ec905b1c014b	67
+71a28fba-3ccf-4f14-9dec-29caa3e60626	1992	25	1	231d08b9-a4f7-45a1-8638-10981b1b6847	50	6d33c531-d871-4411-be7c-2476fd222f12	55
+beccd62d-662d-48f3-8a99-9e9ff8de96e5	1992	26	1	e5738a31-c21e-4c22-8ffc-37e8227bee32	61	eab58afe-70be-44d3-b2a4-0f094eece622	54
+5bae63dd-ce05-4295-859e-7a8da64bb0bd	1992	27	1	4a052986-951e-412e-8ac4-8f2dc0691053	85	6c94471c-730c-4e41-b4af-ea228bff0e8c	47
+b1a1e43b-c9fc-4f0f-bb62-dff4a6f179e9	1992	28	1	7e81c6cf-3f68-4189-b989-6b7f564c04e1	80	fbada6fb-6e33-4b96-ae52-d9131b195bf9	70
+690d3d96-1f35-48fb-8d3b-0c1fae56f57d	1992	29	1	33c3ab81-5bf4-4fe2-9dfb-37a906ab2cb8	80	f8555c0f-9d65-4aa5-9528-a10863b18b1f	69
+2e452796-8f03-45d6-a2f3-b8e1ab0163e8	1992	30	1	7492c725-544e-42a3-8802-ea3b92ee79c8	65	3ec1c477-e445-4b5e-bf0a-d673491bd34c	60
+4c0d8844-a026-469c-b1cc-4dc1aa9e0316	1992	31	1	27997fcf-9e51-4850-9589-0f9dd6162bd6	84	e95687aa-9429-401d-ace4-cacef0ac07dd	54
+ac3b59c3-5e7d-44ed-850f-77bea07a90cf	1992	32	2	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	75	9a0e981f-903b-4435-97fb-758a30a4446e	62
+97aaf10f-a321-4fec-b14f-6fde070bedbe	1992	33	2	3abad3d7-fc1f-4ec0-9c90-bbc7d1bb9f47	71	be9fff71-9862-4ec5-b039-5e8ff2f02980	88
+1db2b8df-5935-437e-a93c-0715e2f793cc	1992	34	2	0ca1986c-4f4d-4d1d-9c67-bf7ca7be1ecb	71	7d3ac80c-8360-4b5b-84dc-de398c226044	77
+f7ede23f-7ff6-4e52-97dd-e740bcf1008f	1992	35	2	77a15b2c-7525-4eaf-8829-7d029df6734b	98	96a034d1-0747-4922-9ca7-89d3d7264be8	106
+56999ece-c371-446b-85be-8ddd9ea0aefe	1992	36	2	b4140901-0a40-4908-ac14-5fbe68c77dc2	85	b7191c26-2d34-4b89-ac74-c10634f9a605	69
+7bd4dfff-f0a0-4c8f-ae56-548cef7ac932	1992	37	2	3f47a828-bd64-4b71-bff6-9e9ae118714d	81	3c81622e-ecbd-4e61-be84-9c9358352f9d	73
+6afe58f5-9616-4590-ab5d-99ee217bf178	1992	38	2	d754602e-fea1-4140-9541-2bdd58191094	68	508c18ee-0451-43d6-882a-6e55b76c6e24	78
+64d3d0e0-a95b-4c8c-9c14-8242c9d593f9	1992	39	2	069d58e6-eec7-4ad4-8a62-97efe2b2a889	79	9a7c3b21-eb0e-4b73-a091-d6874c3c8027	89
+246bf27b-06aa-454a-9121-d436b174ca59	1992	40	2	b620947b-c973-4d23-9c22-bf6f8a0e1484	78	080a85cc-6b88-4e73-b125-9f553765405b	55
+b6dca60d-3125-4f29-8b87-3b2966aff588	1992	41	2	d2f5f878-08f1-4895-9234-4a34e7c98329	55	228721ed-2cb2-4479-bc7a-895f7bfee214	64
+256ad976-d6f8-43b6-87dc-ab8339ed65a1	1992	42	2	95c98356-19ea-4a10-8478-94c1288a5024	102	64bdd73c-722d-423c-9ddc-4b2ba84a7dff	90
+b0ecafa8-2c95-4b0d-be22-3af37b808805	1992	43	2	5c91948a-a7cf-440d-8df9-6fa20b0dfdf2	71	1411a733-421b-49e8-8509-112faad71f79	87
+3dc398ae-ed3d-4879-b042-cb65258ac9f6	1992	44	2	4567a573-4baf-4c91-a2b5-2e87baf64709	60	6d33c531-d871-4411-be7c-2476fd222f12	66
+8baa0c79-7228-476c-925b-75b1f267c3e7	1992	45	2	e5738a31-c21e-4c22-8ffc-37e8227bee32	65	4a052986-951e-412e-8ac4-8f2dc0691053	77
+406e155b-0461-4d6a-b5c0-46d7f2bfe8a0	1992	46	2	7e81c6cf-3f68-4189-b989-6b7f564c04e1	82	33c3ab81-5bf4-4fe2-9dfb-37a906ab2cb8	80
+cbba8cac-58ad-479c-b857-0ffb1ba56d5f	1992	47	2	7492c725-544e-42a3-8802-ea3b92ee79c8	79	27997fcf-9e51-4850-9589-0f9dd6162bd6	78
+6ebab44a-fc60-4f9b-8ee4-f3c381c72f1c	1992	48	3	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	81	be9fff71-9862-4ec5-b039-5e8ff2f02980	69
+b1a3f6e5-72aa-4f79-a171-6edf12342429	1992	49	3	7d3ac80c-8360-4b5b-84dc-de398c226044	77	96a034d1-0747-4922-9ca7-89d3d7264be8	87
+fa95806d-56da-472e-80c2-616c929051fb	1992	50	3	b4140901-0a40-4908-ac14-5fbe68c77dc2	85	3f47a828-bd64-4b71-bff6-9e9ae118714d	78
+3dc823cd-814e-486f-b7cf-ec31003ebba3	1992	51	3	508c18ee-0451-43d6-882a-6e55b76c6e24	74	9a7c3b21-eb0e-4b73-a091-d6874c3c8027	85
+b921732b-2ea3-43e8-b3b4-0f7e2efabe28	1992	52	3	b620947b-c973-4d23-9c22-bf6f8a0e1484	80	228721ed-2cb2-4479-bc7a-895f7bfee214	73
+85b2e55f-7f13-4030-a074-f65ceab06dfd	1992	53	3	95c98356-19ea-4a10-8478-94c1288a5024	75	1411a733-421b-49e8-8509-112faad71f79	72
+e52ace95-8166-4734-bb46-dd3dfb93ea33	1992	54	3	6d33c531-d871-4411-be7c-2476fd222f12	67	4a052986-951e-412e-8ac4-8f2dc0691053	69
+316f82f9-1595-4bd8-8df1-8c02e6a814e6	1992	55	3	7e81c6cf-3f68-4189-b989-6b7f564c04e1	83	7492c725-544e-42a3-8802-ea3b92ee79c8	79
+6c8752c1-8405-4ddb-ac2f-1a24febdcccd	1992	56	4	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	104	96a034d1-0747-4922-9ca7-89d3d7264be8	103
+6e2acdfd-1ad0-479e-b270-869d044bdec1	1992	57	4	b4140901-0a40-4908-ac14-5fbe68c77dc2	79	9a7c3b21-eb0e-4b73-a091-d6874c3c8027	106
+9eae4d55-c939-4c50-a052-07972ab124c5	1992	58	4	b620947b-c973-4d23-9c22-bf6f8a0e1484	71	95c98356-19ea-4a10-8478-94c1288a5024	75
+5009fa2f-ee6b-4f9b-8e51-0e72cb8ebdd7	1992	59	4	4a052986-951e-412e-8ac4-8f2dc0691053	88	7e81c6cf-3f68-4189-b989-6b7f564c04e1	57
+9dca57e5-e53d-4429-9920-01ac7bdb0fba	1992	60	5	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	81	9a7c3b21-eb0e-4b73-a091-d6874c3c8027	78
+9d1268c1-4829-4fe6-92d3-9d9ffd67f9a5	1992	61	5	95c98356-19ea-4a10-8478-94c1288a5024	76	4a052986-951e-412e-8ac4-8f2dc0691053	72
+c18e2f2c-afe7-47d7-81c6-d87429a6ad40	1992	62	6	1b6dabaf-29f1-4bb3-b297-90f99a4f1326	71	95c98356-19ea-4a10-8478-94c1288a5024	51
+879661e1-d9b9-4b36-a79f-cd1938d6c8a7	1993	0	1	dff7cb43-f871-4eb9-ba41-301437568234	85	84b8727c-5a7b-48ab-bca9-b8118b57fa52	65
+803f348a-8562-4021-ad9e-89f7abc805d3	1993	1	1	0cef284a-8ef4-4476-8ad3-a7a2c5cf94a5	74	233ce575-3627-4aa0-9f17-aeee39d7f0a3	68
+0feadb1e-8e1c-4832-86e3-0901653f4167	1993	2	1	4a54a989-75ac-4c01-bdcb-d3fb48810ce1	85	df0bbcf5-96ca-4dec-8fe8-51dae49b9bf4	67
+a60f1459-2263-4d11-8b44-9dcaaf2bdf1f	1993	3	1	1a228cb2-1ca6-41ef-8ca4-d7c845eb7c2b	94	c0caefdf-ab67-4545-ba0b-852dca0bf1f1	64
+62086493-d109-48af-b08d-437a2240f7e0	1993	4	1	9570b22d-30a3-4ae0-a936-771bd7587692	78	a88caab3-f9d1-4453-a54d-f1cc75a06b22	66
+e46b49af-ae5d-45cf-b706-f38375222876	1993	5	1	395212c0-8cbf-47fb-8d8c-e4d969297302	54	24e5e45c-2c60-4128-9d90-bd0242981088	50
+76eca14a-8a10-460c-a1da-84e4e3a9673c	1993	6	1	84d331bb-3c23-48ea-a7ae-270770e3f293	93	6009d7c7-e461-4647-95f5-f4025303baf0	79
+25023539-daf2-4968-b362-072a6da05202	1993	7	1	aa32fa91-36df-413c-b80c-f789bf8cde44	93	93cb38a9-b7f9-43c8-95bb-cce79c7ea191	66
+3e437796-9cbb-4d62-bbf6-11425755da2a	1993	8	1	11497fae-be5e-4985-b3d0-ce3bf5e7bffb	97	5de46c56-b162-4d95-9516-556b254c5590	54
+04c21d5b-db83-4c38-ae16-49c9b3e2cd0d	1993	9	1	522ddaea-76c6-4e39-ac93-ec8a24ffcef3	55	5b4e9f77-7e03-42cc-80d5-9323ee8f875c	73
+99493619-0294-4cac-af19-7adc13471bf3	1993	10	1	c27eb210-e53f-4196-aaf3-422253a693f5	74	bc01f7a3-a0db-47c1-a627-e632bcf456f0	62
+692a1783-64c9-4f43-b14e-0236cd3aba01	1993	11	1	c965d4ff-364f-41c0-ab86-7f990119824d	76	b07b1bf8-3b5e-466c-8bfd-ec72a337fdbd	70
+fbde1c83-500a-46d1-89c2-7f5db94cef73	1993	12	1	69ea1c26-113d-4b1a-96e3-046b55e76c8f	66	c03a045d-a08f-4233-b06b-651dd8ab758e	64
+eb211680-5462-4459-b4c1-400d516d0f9d	1993	13	1	9c73c750-b600-41b5-9b22-2604917f1e06	105	76e8e123-5960-4a2a-b021-0d700e7497f6	70
+1930bb69-5c03-4dea-abe1-6b3489ffcfe0	1993	14	1	dacecff8-4b05-474c-9975-36dcb8bb19e0	80	63d13ded-a147-4328-b833-3e7fcdcca344	71
+da264369-1507-487b-aaf4-c98338037202	1993	15	1	80546844-661b-47f9-8652-0f99ec80b546	94	23db991b-a0ad-4dbf-89d6-2d0c4ff96932	72
+e18f97fc-37f6-4cf8-ac6d-464a09dc985f	1993	16	1	ddbc3703-82c0-4f44-b3ff-d67820d23814	96	ba5ceb80-bd82-4c7e-9c23-c8e663fb4893	52
+e27286e3-b578-49c5-9092-b7ad0b94cdf0	1993	17	1	dbcfdace-0094-44f1-9b96-253d7efe1448	86	5fdba2e1-7259-4007-8cfe-40e35df14a46	65
+f741e9c5-7a5a-471e-9ace-fc650dcc9507	1993	18	1	a6e528e1-ea1d-4906-b77f-58f43fd5e6c0	81	e797c7fb-cb4c-4e16-bf52-a059ca3ee9db	58
+ad9eed34-7765-41b5-b604-0441631f9880	1993	19	1	e3ad24b3-2d47-4d15-afd6-b761feca0568	82	64a2d68e-22b3-48fe-a103-db7f889bb6eb	69
+b5fc5478-a786-450a-8e45-ad3807b1baed	1993	20	1	7a90aab8-8bef-4795-8bb3-f3c55de96dc1	53	72a41ebf-7d0b-4656-9401-43a52398ab72	55
+c7b97cb8-0f51-4562-81df-f1342f47e594	1993	21	1	96d57f77-d4a0-4e30-b717-816725dd5811	82	b802a35d-f56b-4471-a9a6-8e3d1a0d147b	70
+5b5ac3f8-cc76-49ee-8400-cec67b7ee897	1993	22	1	75b697d0-e61f-4109-b1d1-1fc9a931ff73	55	6acdb9ba-120c-4f86-9530-ee2ce4a86a35	52
+f630668b-529e-40ab-90a8-3f14a29788ef	1993	23	1	a0fb2afd-53bf-4382-8620-cb67599ee160	81	c2877085-6563-43ea-852e-4a0ea32b49cb	59
+af9d8e2c-c895-41e5-aa16-734e20750b44	1993	24	1	f3d915f5-675a-44ff-a174-d2144505b654	84	208efe9a-316b-433f-a543-c1628bd1cc01	53
+3c32fc3c-ee7f-49fc-875d-0ca8fe7cbd93	1993	25	1	e4f5bcb3-9d81-43eb-86ae-a4c7906d4136	70	8fdb0519-7155-4561-b934-64df324179e2	81
+a4f83058-0676-4b33-b33a-65f6564e208f	1993	26	1	a7f78e06-dcc2-4370-99aa-c82a2b94ca7a	68	0c4ea205-e3e6-4160-940a-703628e7f1dc	82
+dea84d17-609f-499e-9a6d-d535dba4ed15	1993	27	1	b40c4813-ad31-4be4-a8df-e585168383d8	78	1a82e42e-c258-4825-91ec-5118ca1b2025	93
+d9ff6534-1a44-4c4b-8085-4e7c0c3601ec	1993	28	1	53f171bf-c488-4c03-8875-1a4a1ade762f	75	88798c8e-b66e-4f55-8453-9393956058bb	72
+ac5f4667-5938-483b-b6a1-9d5e2a7e1a8f	1993	29	1	4bc330fc-ff8d-484e-abde-57222c4f5c0a	92	5b9a9b1f-88f4-4f5e-b81a-257ae41d67f6	72
+a688602b-1bee-48d9-aa4b-435e6ffa7466	1993	30	1	0fd8442e-52b0-4a98-80ee-a166ef20333e	75	0fc11bce-20e1-4e3d-a02b-a165efee2f17	61
+becee601-4e1c-4808-9d0e-798d884005c6	1993	31	1	51eee504-121b-41eb-8855-2aa48de8bd83	61	6020961f-3d1d-42b3-965d-0c156f8ea86e	64
+4412bb0b-57d6-4183-bf5d-4956bf860e70	1993	32	2	dff7cb43-f871-4eb9-ba41-301437568234	112	0cef284a-8ef4-4476-8ad3-a7a2c5cf94a5	67
+b415d8ae-5056-4b72-8f62-2dc3d3017cc1	1993	33	2	4a54a989-75ac-4c01-bdcb-d3fb48810ce1	74	1a228cb2-1ca6-41ef-8ca4-d7c845eb7c2b	80
+688e3ea9-5e49-49d5-a801-72cad7b9700a	1993	34	2	9570b22d-30a3-4ae0-a936-771bd7587692	71	395212c0-8cbf-47fb-8d8c-e4d969297302	56
+c1ecc394-c0c9-476e-960f-9d45e7929959	1993	35	2	84d331bb-3c23-48ea-a7ae-270770e3f293	55	aa32fa91-36df-413c-b80c-f789bf8cde44	92
+faf35e49-8567-4407-b0e0-ac8d6398f7c0	1993	36	2	11497fae-be5e-4985-b3d0-ce3bf5e7bffb	73	5b4e9f77-7e03-42cc-80d5-9323ee8f875c	70
+a46e36c2-71d9-4645-89a9-84be8af72a2f	1993	37	2	c27eb210-e53f-4196-aaf3-422253a693f5	63	c965d4ff-364f-41c0-ab86-7f990119824d	78
+1c70110c-b8cb-4360-bdb4-8c30a59360c2	1993	38	2	69ea1c26-113d-4b1a-96e3-046b55e76c8f	82	9c73c750-b600-41b5-9b22-2604917f1e06	77
+6919d56c-070e-4672-8405-b0ee4a7b2fbb	1993	39	2	dacecff8-4b05-474c-9975-36dcb8bb19e0	76	80546844-661b-47f9-8652-0f99ec80b546	90
+617699a7-40fa-4037-8f9f-ea047b006235	1993	40	2	ddbc3703-82c0-4f44-b3ff-d67820d23814	83	dbcfdace-0094-44f1-9b96-253d7efe1448	62
+cfd82a17-f8e1-4693-a669-e3c5f4dc8f30	1993	41	2	a6e528e1-ea1d-4906-b77f-58f43fd5e6c0	84	e3ad24b3-2d47-4d15-afd6-b761feca0568	78
+6bdb5187-2665-4b6c-bff3-e26260e4eb9d	1993	42	2	72a41ebf-7d0b-4656-9401-43a52398ab72	63	96d57f77-d4a0-4e30-b717-816725dd5811	94
+d287f4f6-51d7-427e-ad41-38f7a9e29aae	1993	43	2	75b697d0-e61f-4109-b1d1-1fc9a931ff73	72	a0fb2afd-53bf-4382-8620-cb67599ee160	68
+cf6e6f0c-7da9-44cf-8e11-98dd989899d9	1993	44	2	f3d915f5-675a-44ff-a174-d2144505b654	86	8fdb0519-7155-4561-b934-64df324179e2	84
+1f0e0d88-2ab6-47cf-b645-a3141dd4e944	1993	45	2	0c4ea205-e3e6-4160-940a-703628e7f1dc	90	1a82e42e-c258-4825-91ec-5118ca1b2025	80
+d3adc0ff-931f-4cc1-bf36-9e141b0bf2f2	1993	46	2	53f171bf-c488-4c03-8875-1a4a1ade762f	68	4bc330fc-ff8d-484e-abde-57222c4f5c0a	85
+4be9ad12-625c-40c9-9ef5-73660d8030eb	1993	47	2	0fd8442e-52b0-4a98-80ee-a166ef20333e	68	6020961f-3d1d-42b3-965d-0c156f8ea86e	57
+0bcc7037-5cea-4a1f-827b-82e7b5f97e3c	1993	48	3	dff7cb43-f871-4eb9-ba41-301437568234	80	1a228cb2-1ca6-41ef-8ca4-d7c845eb7c2b	74
+a72342f8-0337-45ac-a288-86b4121d1e12	1993	49	3	9570b22d-30a3-4ae0-a936-771bd7587692	54	aa32fa91-36df-413c-b80c-f789bf8cde44	71
+bd9a9a64-0cd3-43f1-b1f1-50cf4e971282	1993	50	3	11497fae-be5e-4985-b3d0-ce3bf5e7bffb	82	c965d4ff-364f-41c0-ab86-7f990119824d	69
+2d88b921-8671-4e61-904d-f00b2ae33552	1993	51	3	69ea1c26-113d-4b1a-96e3-046b55e76c8f	76	80546844-661b-47f9-8652-0f99ec80b546	93
+4ee4684c-1b6b-462b-be13-0ec57178db69	1993	52	3	ddbc3703-82c0-4f44-b3ff-d67820d23814	103	a6e528e1-ea1d-4906-b77f-58f43fd5e6c0	69
+9cff0742-f6ad-4632-900e-bb11f88e98a6	1993	53	3	96d57f77-d4a0-4e30-b717-816725dd5811	81	75b697d0-e61f-4109-b1d1-1fc9a931ff73	78
+9426d472-c6fb-4ef2-8f6d-cc9fbf42c8d1	1993	54	3	f3d915f5-675a-44ff-a174-d2144505b654	72	0c4ea205-e3e6-4160-940a-703628e7f1dc	64
+f55a656f-8196-4842-843a-41e060f7a7af	1993	55	3	4bc330fc-ff8d-484e-abde-57222c4f5c0a	59	0fd8442e-52b0-4a98-80ee-a166ef20333e	67
+081a03d7-4e2b-49bd-9bc4-b6fa9f4d35df	1993	56	4	dff7cb43-f871-4eb9-ba41-301437568234	75	aa32fa91-36df-413c-b80c-f789bf8cde44	68
+63cd01b5-8c28-45cd-89fb-2441e36c8347	1993	57	4	11497fae-be5e-4985-b3d0-ce3bf5e7bffb	77	80546844-661b-47f9-8652-0f99ec80b546	83
+e464ec4c-930f-4e80-9a9d-5c1314d29145	1993	58	4	ddbc3703-82c0-4f44-b3ff-d67820d23814	106	96d57f77-d4a0-4e30-b717-816725dd5811	81
+1ccc3dee-ba3f-45fa-b537-018713b46e8f	1993	59	4	f3d915f5-675a-44ff-a174-d2144505b654	77	0fd8442e-52b0-4a98-80ee-a166ef20333e	72
+b0815cf7-a307-4117-a1dc-8958e45d3fb3	1993	60	5	dff7cb43-f871-4eb9-ba41-301437568234	78	80546844-661b-47f9-8652-0f99ec80b546	68
+8683dc52-1cff-4a43-8c8d-433844e9575b	1993	61	5	ddbc3703-82c0-4f44-b3ff-d67820d23814	78	f3d915f5-675a-44ff-a174-d2144505b654	81
+2d350111-7f7d-47de-b93a-eb5ccc9ab75e	1993	62	6	dff7cb43-f871-4eb9-ba41-301437568234	77	f3d915f5-675a-44ff-a174-d2144505b654	71
+282240db-2bae-4e7c-9a6b-3c8672a2ed5c	1994	0	1	3971377d-e7e2-451d-af08-f49b1467d874	71	60ce06b4-c5be-4502-a0fd-3dc5d1e0e4ad	51
+fe0fb9ed-f0ce-49e3-9525-b6addb30d5c8	1994	1	1	ab3b5fbf-5046-4797-8a93-fba74570383e	64	8cfadf05-79d7-4a22-8253-4535e6c77953	67
+5e11f8f9-c63c-426c-a612-da7414c12398	1994	2	1	65612c0d-b2dd-43fe-8c33-e40b4d15e34e	84	7c6cc5a2-595d-42dd-87df-74b0ad9a477e	72
+e2dbab28-c107-47d3-b2ee-7caec0199e2c	1994	3	1	ddfa91d2-a244-4c3b-9c3b-f51aa0426e51	61	22d6eea4-f8f6-4cc7-8de0-bb976a8136e3	39
+90ebdc3c-eb03-4b1a-883e-8426b62dbe28	1994	4	1	c9ee6f3b-6a72-4a3c-89dc-e555a32f7aac	80	c5bcaaeb-27d8-4667-92c6-7a002408fafa	90
+6fe28d49-cb03-4c56-9db8-450fadf7ac04	1994	5	1	dc50bc45-18db-4d5e-9b54-938c9a5f62a4	64	1f33eb60-cece-4c46-ac39-282991beda71	62
+d8c8ff03-2ebd-4c70-b1a6-9857f58c67b7	1994	6	1	f599ab30-5727-4364-8d13-3132d235be3c	46	97f50fab-f5ba-46f2-8c3d-b5910451c452	51
+12413997-1024-461f-a515-b5c7ccfb5c43	1994	7	1	6bb7acb5-6838-4809-9e09-3c899867a755	64	31a8f9a4-eb8c-495e-a015-34d62ddc03ae	46
+fe0700b0-d0a0-401b-9f27-f80354f2bfaa	1994	8	1	417db52a-4d93-42f9-9061-bf4087d8890a	98	f983d30f-5cc3-4ef4-8f38-1a7313909695	67
+2250ab0f-2e31-4415-9b03-2d23c2747089	1994	9	1	35baeaa1-beb1-4ed7-b4b3-86b314168564	70	11b04f1c-0aef-45a0-bafa-d02d83c44ff0	76
+fa2097d5-239b-4c37-8177-0fe361448aa2	1994	10	1	5bc3a456-d8a5-4a02-84a7-0a9ec05a4efe	68	619da958-8cd2-4f9e-bf36-dffe0de1af35	58
+7278e0ac-e418-4d3a-af82-2a1d44e64b5e	1994	11	1	fda44528-2bf8-411e-94ec-a5774c7f29f9	102	5f5d7234-2b90-4024-ab5d-6362f9db777d	73
+97211c46-3272-4c0b-b483-1d31b3f1d9f7	1994	12	1	2aded286-d8f5-442b-a592-d3276e2d2adb	81	6fd3b0cf-8e8b-4da1-9bc3-143bc88979c9	59
+e9d02612-6aed-4f85-9f1f-ef858f981af2	1994	13	1	e1b3eb3e-525b-4ce1-9eb8-2141b343f8da	83	0b469151-23f8-43be-8aad-637150ab7032	70
+5d8cad39-a518-457f-b02e-80234483e526	1994	14	1	d7d0c5cf-5e2d-4372-bd8c-f77c191feb51	84	2e7235bc-0be1-4f28-9ee6-89c18d518b5f	73
+ff32ce45-708c-4c80-a2d3-8e81623b9d48	1994	15	1	642d0963-9b12-4ac1-8159-bfce8c03034e	82	1d959d33-abed-4296-8af8-093b211d8ad6	70
+ca3274b4-1118-4401-bbc3-ff1e20774173	1994	16	1	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	94	78435797-f297-48e4-82bd-4b16aaa1fc7c	79
+bef3d328-3237-4373-aff9-7a3b6470c4f7	1994	17	1	8bda1606-ecab-4f97-bd39-e16431b133c3	77	2c06b707-3f87-465e-ab88-0cef1a48d6c5	84
+cc6b2cd8-c072-4f32-b2dd-113ce632ca7b	1994	18	1	88176124-3bea-4e40-8d22-56d0bc039271	102	f2ae5591-449b-4508-98ec-0fbc48524e44	112
+1bdfad30-5dad-420f-93fb-a0837ba32873	1994	19	1	80836b80-443d-44d4-84e1-9eb481611873	65	6f0f5534-d8ab-418c-8f18-f88590c8133a	55
+38da54de-8aae-4af2-8309-311fca78c653	1994	20	1	b8f5dfe9-7cdd-4c3d-868a-4e3d88cbfce7	91	49846cb1-2df5-49d7-98ed-07d22b712f4a	77
+e926e053-98ea-42b0-a786-e17c62e447b2	1994	21	1	30b592b4-3850-4360-ae5b-9023d38c0949	78	750a29d4-624f-455a-8bbb-bafad2e21df5	74
+c6de2e5a-28da-48d2-b066-d950e08859b8	1994	22	1	b7d52acb-0d81-466a-b4fe-200e5de84503	66	4eba71fb-a4c1-4c27-bd56-826218fd2123	74
+b461b421-5f03-4d76-8c8e-7646bb67e77c	1994	23	1	f527efad-0033-443c-ad00-ecd4732aa58e	78	da1c8b36-9538-46c6-9a50-1b5b5bb49446	60
+e4118e0f-e517-4598-bbef-00101fd4d3b6	1994	24	1	b82fdf5a-1fad-4ed4-b04d-943fa631764e	76	ee0fe345-d9bc-462d-b3c8-a07bbdf6c20f	53
+78157030-b42f-4219-96bc-4362d9f08bfd	1994	25	1	f01b6e6a-d895-43bd-8799-9ed0a5dd7d81	72	044b2ef9-7e83-4e75-b632-029c8b12bc40	80
+7442e28d-351d-416a-99a5-3fffb0d415aa	1994	26	1	b1d6062c-c9ff-4dcb-ba33-886e9bf9942f	57	6f789bb4-a993-4924-bbcc-585b18a96d4b	61
+0eacf664-3f8a-460d-b422-f3220057f753	1994	27	1	3308d42b-13fe-44f3-a314-beefa8a13f95	92	199567a0-4776-44a7-a4b0-9ae640759387	78
+990f856e-6ae6-4a34-a07f-4174627a2c05	1994	28	1	8cf78e2e-316e-4cf5-90ff-963288551c53	74	0c6a6057-ad66-47a7-a17a-eee826c27f2a	60
+99938c11-c786-4c1a-9685-064dadd75772	1994	29	1	24db1d99-c079-4d3b-8790-c6e54e56cf9e	67	982e8b4c-e36f-44c9-8445-db2abce88f7e	58
+1e65b21b-1bb0-406b-8d77-b0c957b6ba30	1994	30	1	b423cf7d-57db-4093-b232-915de5aa8403	57	a6747c22-2ce1-4141-b7c8-e2b2ed1a3c4b	54
+9946260a-56fa-46da-ad8a-ca531d4de3de	1994	31	1	d84188f5-122c-4b50-acdd-0caf4e9b472f	81	5f486b16-f082-4a3e-a9b1-21d27c7363e1	55
+3c7aff9b-d5e4-4ca1-9443-26dcd7ffb433	1994	32	2	3971377d-e7e2-451d-af08-f49b1467d874	72	8cfadf05-79d7-4a22-8253-4535e6c77953	75
+ca12dbcc-68dc-49cc-9ba8-3002f4756614	1994	33	2	65612c0d-b2dd-43fe-8c33-e40b4d15e34e	67	ddfa91d2-a244-4c3b-9c3b-f51aa0426e51	58
+e22a204c-ae5a-4368-8895-e4fba4d25c99	1994	34	2	c5bcaaeb-27d8-4667-92c6-7a002408fafa	58	dc50bc45-18db-4d5e-9b54-938c9a5f62a4	70
+eff1e138-8bcb-4c0e-9882-9c79f1f94cf1	1994	35	2	97f50fab-f5ba-46f2-8c3d-b5910451c452	63	6bb7acb5-6838-4809-9e09-3c899867a755	75
+3acc1b56-7a42-4595-8e75-c7adbec17fa1	1994	36	2	417db52a-4d93-42f9-9061-bf4087d8890a	83	11b04f1c-0aef-45a0-bafa-d02d83c44ff0	73
+e3fa2955-b74b-4c8e-aca2-5a194146c3e8	1994	37	2	5bc3a456-d8a5-4a02-84a7-0a9ec05a4efe	58	fda44528-2bf8-411e-94ec-a5774c7f29f9	69
+e768cef5-f12d-41d3-b52a-fe673581a0cf	1994	38	2	2aded286-d8f5-442b-a592-d3276e2d2adb	75	e1b3eb3e-525b-4ce1-9eb8-2141b343f8da	63
+d5c76815-730c-42cb-9afb-92e56743eae4	1994	39	2	d7d0c5cf-5e2d-4372-bd8c-f77c191feb51	74	642d0963-9b12-4ac1-8159-bfce8c03034e	85
+90bc0e8b-0f29-453e-b027-4644b2c3441c	1994	40	2	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	85	2c06b707-3f87-465e-ab88-0cef1a48d6c5	73
+27a1cf1a-41c2-4e39-9f81-df9db55acc6b	1994	41	2	f2ae5591-449b-4508-98ec-0fbc48524e44	82	80836b80-443d-44d4-84e1-9eb481611873	80
+142498e7-6474-42d6-a835-0275b7542543	1994	42	2	b8f5dfe9-7cdd-4c3d-868a-4e3d88cbfce7	79	30b592b4-3850-4360-ae5b-9023d38c0949	84
+120aa47e-0d74-41d4-8933-3c81170f5732	1994	43	2	4eba71fb-a4c1-4c27-bd56-826218fd2123	95	f527efad-0033-443c-ad00-ecd4732aa58e	87
+9db3d9a7-9b77-43c3-abeb-e326f56d93ee	1994	44	2	b82fdf5a-1fad-4ed4-b04d-943fa631764e	109	044b2ef9-7e83-4e75-b632-029c8b12bc40	96
+ebffdd80-dae1-4d48-9130-911906c83db5	1994	45	2	6f789bb4-a993-4924-bbcc-585b18a96d4b	59	3308d42b-13fe-44f3-a314-beefa8a13f95	64
+fa397067-4c1b-4ad4-b209-5b7dcb8185cd	1994	46	2	8cf78e2e-316e-4cf5-90ff-963288551c53	55	24db1d99-c079-4d3b-8790-c6e54e56cf9e	60
+972c5f93-baf6-48b4-b174-224ea23b1ff7	1994	47	2	b423cf7d-57db-4093-b232-915de5aa8403	58	d84188f5-122c-4b50-acdd-0caf4e9b472f	71
+b789a671-b9fb-4c0f-bed5-24a9c09d7dd4	1994	48	3	8cfadf05-79d7-4a22-8253-4535e6c77953	77	65612c0d-b2dd-43fe-8c33-e40b4d15e34e	68
+b53c94f6-d757-49bd-9d93-ebf628cc4aa5	1994	49	3	dc50bc45-18db-4d5e-9b54-938c9a5f62a4	69	6bb7acb5-6838-4809-9e09-3c899867a755	60
+e2f9c059-b050-4fe0-80b9-4823b6346671	1994	50	3	417db52a-4d93-42f9-9061-bf4087d8890a	83	fda44528-2bf8-411e-94ec-a5774c7f29f9	78
+65d318f5-27e4-46f6-a3d6-fd43cc6a3178	1994	51	3	2aded286-d8f5-442b-a592-d3276e2d2adb	49	642d0963-9b12-4ac1-8159-bfce8c03034e	59
+892dd4a0-6c35-4105-8b84-25ee0b6d07c8	1994	52	3	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	103	f2ae5591-449b-4508-98ec-0fbc48524e44	84
+10957ebb-4d1b-49ca-921a-6af071f4070d	1994	53	3	30b592b4-3850-4360-ae5b-9023d38c0949	78	4eba71fb-a4c1-4c27-bd56-826218fd2123	71
+98d5cfae-3ef3-42e3-b19e-8032b705fb7e	1994	54	3	b82fdf5a-1fad-4ed4-b04d-943fa631764e	98	3308d42b-13fe-44f3-a314-beefa8a13f95	88
+fbc37a99-35c4-42a2-820e-e3c860589c2a	1994	55	3	24db1d99-c079-4d3b-8790-c6e54e56cf9e	70	d84188f5-122c-4b50-acdd-0caf4e9b472f	82
+1fc4ea39-f3e1-48fd-bf56-910d43c5c51b	1994	56	4	8cfadf05-79d7-4a22-8253-4535e6c77953	66	dc50bc45-18db-4d5e-9b54-938c9a5f62a4	74
+37160bbe-7946-40d8-82e9-1f3dd9007d88	1994	57	4	417db52a-4d93-42f9-9061-bf4087d8890a	60	642d0963-9b12-4ac1-8159-bfce8c03034e	69
+07021fb3-361e-4003-af67-7f462f3843ee	1994	58	4	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	76	30b592b4-3850-4360-ae5b-9023d38c0949	68
+87ae798b-947b-49dc-83e4-f410cfddb7a4	1994	59	4	b82fdf5a-1fad-4ed4-b04d-943fa631764e	72	d84188f5-122c-4b50-acdd-0caf4e9b472f	92
+7370230b-326d-460f-bd93-e6c6a69b76d8	1994	60	5	dc50bc45-18db-4d5e-9b54-938c9a5f62a4	65	642d0963-9b12-4ac1-8159-bfce8c03034e	70
+c851039f-c83d-4a23-bb39-87767eef14fd	1994	61	5	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	91	d84188f5-122c-4b50-acdd-0caf4e9b472f	82
+242ebda7-7f30-4fc7-9789-5571da902cca	1994	62	6	642d0963-9b12-4ac1-8159-bfce8c03034e	72	ae18fd65-7ba1-49ed-a42f-033a3dce31bb	76
+11ab0735-5a40-42d2-8b67-d815ebf68a4a	1995	0	1	083d0d9d-8870-4d23-9f9c-3ff3c51c9e3a	79	b1df9519-7c92-46c5-93e0-0e1ebde50c8d	47
+c9b86e1f-0085-44cf-8eff-c47f0875ea15	1995	1	1	cf9b82c9-ad20-4ba8-a7a2-56811e193b65	61	e5093582-190b-4115-8b24-473f0f906723	64
+7e071aeb-7e37-438f-b422-2d45feedda21	1995	2	1	507e37fc-5610-4a88-9351-fa356701b93d	91	3859e895-f055-4856-a660-0cd6daaba4ad	85
+66af6456-b655-4383-b5cd-10b8f2eeb53c	1995	3	1	f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	73	aa897336-45ee-4d92-807a-0ce731b833e7	49
+08f2c5d7-f5b2-4d5d-a690-4b1343791049	1995	4	1	890122a5-25c4-429c-bce1-d26ccf697bb8	68	a62465a4-4236-4c3c-9094-7cb72fdeb7b3	62
+182b9cb4-2d76-4fac-9441-adb2ec4395d9	1995	5	1	03eb008e-0764-4b74-9ed6-283fb14f5b41	81	d955d87a-34bd-455d-9d9d-561e98bdee11	89
+7dd37789-da13-4152-9b9b-deaa3fd9639c	1995	6	1	bf9775ab-9435-48e9-8189-abf96e190941	68	6366f7ed-f069-432c-bb5d-c90c357f8db3	70
+45ceaa4c-2bb9-4c93-b2d4-b10b28ac012e	1995	7	1	a78e028e-1451-4526-91d5-c58df6e93720	68	bc6c1e26-0ce8-496c-b464-415b5c1ecb2b	51
+346f81df-5be3-43a3-ae08-ecda924fac10	1995	8	1	237e6195-ff0b-458e-8212-1ef43086a6d1	92	bf047a29-4eb1-4616-9866-1cb1473f29ac	56
+3318863b-9364-4182-abf2-e6a152c0414a	1995	9	1	310e6784-38c4-4fff-8690-d0f5993e4bfb	65	79ac4281-577b-41a6-bfe4-0740340de959	60
+e1b5ee1c-9bb8-465a-be20-9e771f835cc7	1995	10	1	531a8c51-5ea2-45c0-bd95-aad9cd9e968d	75	17a16398-d293-4a4b-b4f2-22e1265bd9d2	67
+cb3d0c95-5338-4c3f-8a16-74d6e7a12997	1995	11	1	ffc78b38-61cf-49ca-81b6-2c528535ca44	76	a0603c76-ec8b-46e2-96ae-f3eaa7f5b26b	64
+1134e2fa-32ad-4735-be88-4c8402b74b63	1995	12	1	6824cec4-2581-4f8d-afca-8a0cd5287a29	73	3c7bde87-1e09-47e3-8921-c34f24e75844	90
+bdad55a4-4909-4062-85f5-21438e7166d8	1995	13	1	c3e3e997-ec92-4424-8815-7187d90b978b	87	6b8b6641-1ff8-4a02-8327-28490144ce1f	63
+038f67a3-2b34-4559-8510-032b3edd5bd0	1995	14	1	ec0fe4aa-c226-41ae-ad93-3c81eed56e45	77	96b3f473-2c98-49c2-899c-b5cd02e42864	71
+3360cd97-73a7-4503-8e20-2223f4047d27	1995	15	1	08e84a29-a9e7-4408-bc19-fac93ac7b364	100	9baef25c-2fa9-4139-9921-432181f1c918	71
+3026ddf7-071d-4dde-a5c9-58fc1686ae59	1995	16	1	9741f5d2-3ddf-4c96-ae1a-23499dc90da3	113	c539165a-e577-47a8-9e3c-aee0ed60dfd1	67
+3a271751-1f00-4a02-8945-3b98fe700b0f	1995	17	1	3ee5a2ee-fca4-4d42-9208-3e79707265eb	70	913038b4-658d-4486-a86b-e4b31095e8a9	76
+c04d6bd8-f4d6-410d-918b-3f99f0b1fbb9	1995	18	1	7365aa6b-fd7d-4c07-8de7-db4ca7e26e51	81	b3eac96f-1c89-40eb-b04e-3af0aa5190d2	66
+36eb598f-850e-46d0-88a4-bd177d6b72c7	1995	19	1	b3bf1835-7882-4aec-a0ab-fb6ff913631e	67	131a9035-e890-4644-ada6-28dd9b3e2e05	77
+88f47a2c-2c7e-48a0-b34e-1cad3d1a0379	1995	20	1	fc5989eb-595e-4b35-ade9-ae7b412ed2f5	68	61e7f3eb-8bda-4060-8c32-3e2fb75413c3	63
+f01a1c7c-9331-4378-bb9e-d077c6f7433d	1995	21	1	0a1b87b4-2f6a-4e4f-a7ec-5bc3d30b6581	72	79f6738c-7468-4971-b0c1-ed63f02437f3	79
+f28eb5f9-65af-4d27-bc88-e95b2af5b56e	1995	22	1	2ce73802-b70e-4b1f-bb5a-997480a6f13f	64	d4d5ff09-0cd0-453c-930c-2ca94d37a301	61
+d41e6b2c-bf10-427c-b11b-73412a248b6d	1995	23	1	a87851f9-23ed-4518-9775-6635fc939beb	80	6280d513-11df-4989-b485-028685908a41	70
+5f4d96ef-7cd3-4be0-98d3-1eab6f36821f	1995	24	1	6bb0b55a-ce6a-469d-a92c-35b732f01cb8	82	0b07b67f-6cd1-4767-999e-5be6a649868e	68
+c9b50597-dc10-4226-8624-35912ab8f3c6	1995	25	1	de972ec8-b72a-40cc-abf3-5421103585ed	82	5135cda5-7167-401b-aba0-f376697e1bf4	76
+fdb5f3f3-1649-43ca-a00c-7c67bdca0d23	1995	26	1	822e35bf-31a7-4d0e-b36c-46b358640e44	62	8388fc79-4501-4e70-b89b-958a1f812865	71
+be34af6a-e8c1-4701-abfc-0bc5b6fa89e1	1995	27	1	98f4a80d-a6a4-4c7d-bf1a-381fce53055b	96	9bf68154-6e72-412e-8961-c56c18959309	72
+6ca77648-7bb7-4e2b-871e-ef2f066ba436	1995	28	1	556d12ff-c7ea-4d3f-9956-d2036df373ce	77	2442a597-173a-4e19-ad20-b6f46dd3e3d3	56
+dba131a4-aabb-477c-9926-c6f9732420a7	1995	29	1	2380fa24-ef01-4107-9328-6e7f0c5603ce	49	f763159f-2cfe-4419-9183-39e9d86eb685	48
+8c4dbe6e-736d-4471-8bd7-f654458c4f97	1995	30	1	fc98b484-3c97-499f-9172-1507ea149ce3	96	5444bfbc-7e09-45e1-a7a0-36675f0aa684	92
+8e1dd350-9f4c-4aa4-9ecf-540e1acf7f06	1995	31	1	e41d05ec-10c0-4f32-9a87-d461abab77a2	79	83b344c3-b705-43f2-a2d6-2a2f6f1c2ac3	78
+2cd94204-2135-4c80-b1fe-a384f63259f3	1995	32	2	083d0d9d-8870-4d23-9f9c-3ff3c51c9e3a	64	e5093582-190b-4115-8b24-473f0f906723	59
+391cd1ad-79f9-450f-94d7-beebacf97e06	1995	33	2	507e37fc-5610-4a88-9351-fa356701b93d	52	f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	66
+a4d2ac33-c01a-47a7-ad6b-2eb850597c10	1995	34	2	890122a5-25c4-429c-bce1-d26ccf697bb8	64	d955d87a-34bd-455d-9d9d-561e98bdee11	52
+dec8633d-477f-4d20-970f-8aa20da8039e	1995	35	2	6366f7ed-f069-432c-bb5d-c90c357f8db3	53	a78e028e-1451-4526-91d5-c58df6e93720	75
+fc0d7f4f-20f8-4646-b4c8-b3525539413c	1995	36	2	237e6195-ff0b-458e-8212-1ef43086a6d1	75	310e6784-38c4-4fff-8690-d0f5993e4bfb	74
+48e3da31-9d07-4c76-961a-f01f41b4698c	1995	37	2	531a8c51-5ea2-45c0-bd95-aad9cd9e968d	78	ffc78b38-61cf-49ca-81b6-2c528535ca44	64
+c4897fc5-07e8-4a43-8e9d-f6505744b697	1995	38	2	3c7bde87-1e09-47e3-8921-c34f24e75844	68	c3e3e997-ec92-4424-8815-7187d90b978b	82
+503c2a70-3f84-4dbd-ad1c-86b06492d44b	1995	39	2	ec0fe4aa-c226-41ae-ad93-3c81eed56e45	91	08e84a29-a9e7-4408-bc19-fac93ac7b364	96
+6ebabc27-f927-42f5-8218-cac8b14acb1c	1995	40	2	9741f5d2-3ddf-4c96-ae1a-23499dc90da3	82	913038b4-658d-4486-a86b-e4b31095e8a9	60
+fe6a341c-2a4c-4da4-8f4c-a01799a530c7	1995	41	2	7365aa6b-fd7d-4c07-8de7-db4ca7e26e51	64	131a9035-e890-4644-ada6-28dd9b3e2e05	54
+17b32fce-4f41-4d4a-a344-750d299f505a	1995	42	2	fc5989eb-595e-4b35-ade9-ae7b412ed2f5	53	79f6738c-7468-4971-b0c1-ed63f02437f3	51
+9fbf4902-1768-4a1c-a81e-098ae67d7494	1995	43	2	2ce73802-b70e-4b1f-bb5a-997480a6f13f	51	a87851f9-23ed-4518-9775-6635fc939beb	73
+836d728c-6724-4823-9e27-fc92a8669cbf	1995	44	2	6bb0b55a-ce6a-469d-a92c-35b732f01cb8	75	de972ec8-b72a-40cc-abf3-5421103585ed	70
+8b19270e-1d70-49fe-bdfc-902c3637cf70	1995	45	2	8388fc79-4501-4e70-b89b-958a1f812865	54	98f4a80d-a6a4-4c7d-bf1a-381fce53055b	60
+e9133cdb-fe0a-45e3-8800-f18328531bcc	1995	46	2	556d12ff-c7ea-4d3f-9956-d2036df373ce	75	2380fa24-ef01-4107-9328-6e7f0c5603ce	73
+0d2924a2-aaf5-46ba-9701-a8aab5e694c8	1995	47	2	fc98b484-3c97-499f-9172-1507ea149ce3	94	e41d05ec-10c0-4f32-9a87-d461abab77a2	96
+65b2e34e-8f13-40e1-8526-1843f2a1a2c6	1995	48	3	083d0d9d-8870-4d23-9f9c-3ff3c51c9e3a	66	f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	71
+d2565d9b-499c-4c8b-b03a-2c5e413769cc	1995	49	3	890122a5-25c4-429c-bce1-d26ccf697bb8	51	a78e028e-1451-4526-91d5-c58df6e93720	76
+26b447ae-5072-42fe-a7fb-7ff3cdc31287	1995	50	3	237e6195-ff0b-458e-8212-1ef43086a6d1	86	531a8c51-5ea2-45c0-bd95-aad9cd9e968d	67
+13646d2a-9c08-45af-b9c3-f46b337c8c42	1995	51	3	c3e3e997-ec92-4424-8815-7187d90b978b	89	08e84a29-a9e7-4408-bc19-fac93ac7b364	99
+c8eae41d-1bcc-41ee-af39-d2a9b9d9c822	1995	52	3	9741f5d2-3ddf-4c96-ae1a-23499dc90da3	97	7365aa6b-fd7d-4c07-8de7-db4ca7e26e51	73
+ee79e123-679c-4ff5-8ee2-8df36de61be0	1995	53	3	fc5989eb-595e-4b35-ade9-ae7b412ed2f5	64	a87851f9-23ed-4518-9775-6635fc939beb	74
+ea22c2b6-bf89-44c8-890f-ac06b8267bac	1995	54	3	6bb0b55a-ce6a-469d-a92c-35b732f01cb8	58	98f4a80d-a6a4-4c7d-bf1a-381fce53055b	67
+994bd379-d7fd-4c61-888f-76e29bdbf42b	1995	55	3	556d12ff-c7ea-4d3f-9956-d2036df373ce	91	e41d05ec-10c0-4f32-9a87-d461abab77a2	96
+7aaee5a7-0c2d-4304-b69e-b5dd304c757c	1995	56	4	f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	68	a78e028e-1451-4526-91d5-c58df6e93720	54
+f6f94750-0be8-4bc1-bb94-b03002891404	1995	57	4	237e6195-ff0b-458e-8212-1ef43086a6d1	102	08e84a29-a9e7-4408-bc19-fac93ac7b364	96
+6c9db0e6-5fdc-46fc-81e4-feab5e8bda46	1995	58	4	9741f5d2-3ddf-4c96-ae1a-23499dc90da3	61	a87851f9-23ed-4518-9775-6635fc939beb	74
+48328b98-8348-47c5-a56a-1bd9cb06b4fa	1995	59	4	98f4a80d-a6a4-4c7d-bf1a-381fce53055b	61	e41d05ec-10c0-4f32-9a87-d461abab77a2	68
+4a9da91e-59eb-423e-856a-44a31f6c3435	1995	60	5	f7c80c92-be7c-4a30-9ca4-57e78f0a45b0	61	237e6195-ff0b-458e-8212-1ef43086a6d1	74
+3352f15c-9a59-4ecc-9018-25a472d1886b	1995	61	5	a87851f9-23ed-4518-9775-6635fc939beb	68	e41d05ec-10c0-4f32-9a87-d461abab77a2	75
+e395f122-a62c-40bf-8805-59c3faf7f04b	1995	62	6	237e6195-ff0b-458e-8212-1ef43086a6d1	89	e41d05ec-10c0-4f32-9a87-d461abab77a2	78
+c45106d3-657f-4d63-92da-b85b1c63442f	1996	0	1	4c3f9222-3917-4570-b3af-666a66818d76	92	6029debe-d663-4868-a1f8-98d9c2f11361	70
+92d798ca-ec86-419f-b268-032df26989a9	1996	1	1	841bb16d-4b3e-4ded-85ad-ce1421846037	58	14ec4545-e69e-4ed1-846b-e42603ff9f7f	66
+0c7d3691-e930-43c1-8066-9348e4efa360	1996	2	1	aa337e21-9705-455b-a5a7-466e8f6a85b3	80	68d0df8f-b1f8-42a6-ad39-12c628b132bc	86
+7573673a-8613-4208-9377-a1a71f5162fa	1996	3	1	262c9125-9339-4151-8431-ef940f3c2abf	68	e889a5c1-8191-4740-bed0-5eecf66ad895	44
+1ef5631c-34a0-40e0-aecf-00f954c20755	1996	4	1	44f40b35-2915-40f2-b397-eb19503e9942	83	8d84f2d9-72ce-4081-8202-cf201accd595	62
+eac7203c-d23f-480d-820f-0740baf6d244	1996	5	1	9e03c83c-0313-4a60-9c3a-57139a305f12	74	d65b1ee7-0ed2-4182-b535-4aa4bbe9e408	73
+955244d2-9f81-466a-b862-5b58d91452cf	1996	6	1	7423981c-bc51-49f9-94c2-ea4b73d3ff30	69	6626196d-0f1b-49a0-98a7-f8b86dbf0604	48
+c6836f22-3084-474b-a4b2-57e471912e6b	1996	7	1	79fd66f5-4024-4031-bd24-db545428741a	93	3d7823fd-d804-47de-8e43-0c63980bc435	56
+0f2c3632-0d94-4927-9254-2efebf55e9a9	1996	8	1	8dd2e3cb-e456-4367-9371-d0e6265a8155	110	1d3047cc-fced-44da-86f4-556e3589cfe6	72
+f19cff10-3659-4cc8-8838-8ee7a00a35a6	1996	9	1	9f0a1ca6-509f-4237-9893-5d92ac258fa1	49	2fccb6be-1028-49da-b755-b5a592f76703	61
+c652bd1b-d382-40c5-9992-77f10b04ea83	1996	10	1	cba5a616-3b29-4fcd-a942-ecf92b986710	74	cd869b22-2aba-4b45-9cc9-d7dccc1b5d4b	64
+afe8ecfa-8b40-49af-9a4a-fddeb1ceb1c0	1996	11	1	e185a318-4298-48e1-b441-3fdf017e5e2f	72	899172ec-c9f2-425f-856e-e260e9630d44	43
+aa0af2c7-a846-4e8d-af8a-5c78435cc465	1996	12	1	1c81f3b0-a4d4-4b01-a884-d78b29808af0	82	c318ee80-e5c7-42dc-8fd1-f3fd43b3eb9a	80
+f3745bca-c542-479c-9310-1a6aba5d7ea7	1996	13	1	3c6f0bde-ffe3-46ce-8803-e26a07b5f011	92	9cbd03f7-6b15-4565-8824-e421eab4311d	58
+c1d5f9a2-cd33-46ba-befe-97df434c693f	1996	14	1	a760618a-80d5-4c52-9ba2-3edede42d79d	76	b4dc2d35-8f82-49f2-a6a4-1ab9dc6167cc	80
+250f3e2e-66cc-47c2-aa3d-88f7effefaea	1996	15	1	08a1cda6-2364-4dce-bc84-a5c2eed11b74	62	ec3205fe-55d8-49be-8629-c377125a8ad1	50
+88144886-9763-481f-ad41-477280af2583	1996	16	1	c866bdcd-883d-4d33-ac60-dcf2424cc5a4	68	4b505b40-487d-40fd-9c80-01a25d9d95a5	59
+78754f19-67bd-4f75-b54c-52bf18cc2554	1996	17	1	aef45d48-bd89-4011-a131-a08e7e353325	60	86a53cb2-b25f-4a77-a7fd-c37dce50eaf7	75
+9a7a3582-e4f8-4e67-bb75-c18f7d28c2ba	1996	18	1	277a8eb4-3668-4ab8-99fd-a88076946ef1	58	2cdcaaaf-ed03-4a4f-8ae7-28c9281830f5	51
+f6f4a349-b14c-4f9a-93a0-1369f7bd8b3b	1996	19	1	963ff3ff-0673-4ca3-a059-2dcf3084724b	41	1723d557-2f3a-4ce9-9ec2-96a5c020502e	43
+91e69646-e6b6-41b4-91c0-9fda43cd74ba	1996	20	1	800533c8-97e7-41b1-878b-c3c8fbaee7f4	51	de0dff94-55af-4b8d-8b4f-bd1437fb8d5c	64
+03ebee5a-793b-4269-9ccc-c5f7f4d33bcb	1996	21	1	06010d14-75fc-4652-b5a8-29f4754b6eb1	90	257098bc-ef63-492b-acf4-2b9f096f4359	79
+5327fadb-4f75-40c0-b0c3-c8eee171ff00	1996	22	1	d0a3ba6e-c3cf-42c8-9afc-e79ebce1d0cd	61	75f38d05-9429-4b5e-bf3d-25e39d4775d0	43
+d448648b-8372-4c9f-832e-03d60ec13d03	1996	23	1	0452a188-6d3a-4eaa-9168-638a89ee6ae6	66	56ec3c8c-6561-4a71-b912-2946af87fea2	61
+6ebdf8db-5e5f-4919-bae7-a84ebd0c37e6	1996	24	1	3e7c39cd-b410-400a-b731-6d9a7a78ec42	73	027fca9e-9450-4010-b2a5-c332e8decd47	71
+c8413a87-019b-4fa7-ac48-ab95ea12d772	1996	25	1	1dfa4838-6b30-44bc-8242-8b809529863b	81	0e0e4e4d-a641-4d09-b162-606393cf769b	74
+6dbd3d69-d69a-4a3c-abb9-ed1686f20e6e	1996	26	1	c49f14ca-7a42-4c6a-a3ae-905e317c95e5	63	43c91c86-ad37-4b7b-9ffa-a24de52f5000	75
+b2264bf7-ea76-4d49-a50b-8999772d7ba2	1996	27	1	a2a1a50f-2aa8-4e57-a919-161dcb756020	88	e1de114a-7762-405a-9aaa-d88f1e691580	55
+e5e0a2a9-06ea-486d-bbec-20b4ea091ba0	1996	28	1	e3b67e40-09d8-4387-b22c-48bbd7b1da02	81	c5a427eb-dd84-4397-be98-d06bc31211fe	79
+fba3ca72-bdd6-4114-9fff-c8aa684a21e8	1996	29	1	8e614b38-8504-4fd5-8a68-8aef9bd506f2	90	bb1bf51a-731c-4fcb-a94c-223e5d6fce23	51
+7f3f0b2e-566a-4189-bf7f-f2f544b1c76c	1996	30	1	2d7fe116-489d-44d4-9dda-6120eecb404a	79	1ab0e813-99ef-47dd-b844-96f182e2bee2	91
+64c4812a-605f-4378-b424-2fd4e6ae53c1	1996	31	1	d35851e0-29eb-4330-993a-52012d5172c7	92	a93a4320-72ac-4d66-8e66-03f585f6b9aa	54
+982dd470-9b56-44d4-9b05-9e289d1572f1	1996	32	2	4c3f9222-3917-4570-b3af-666a66818d76	79	14ec4545-e69e-4ed1-846b-e42603ff9f7f	74
+a2df1e43-c01b-490a-9e9d-900c87fdc325	1996	33	2	68d0df8f-b1f8-42a6-ad39-12c628b132bc	65	262c9125-9339-4151-8431-ef940f3c2abf	56
+189eef61-7200-478f-8d38-a8e3d77769e2	1996	34	2	44f40b35-2915-40f2-b397-eb19503e9942	73	9e03c83c-0313-4a60-9c3a-57139a305f12	92
+ccfd392f-9712-4856-9fef-a2cdbc8154af	1996	35	2	7423981c-bc51-49f9-94c2-ea4b73d3ff30	65	79fd66f5-4024-4031-bd24-db545428741a	75
+ef958a58-bbbc-43c1-8aa9-3e9f3c20e199	1996	36	2	8dd2e3cb-e456-4367-9371-d0e6265a8155	84	2fccb6be-1028-49da-b755-b5a592f76703	60
+b16c8d73-a8be-4004-b806-cd90870c4cfc	1996	37	2	cba5a616-3b29-4fcd-a942-ecf92b986710	67	e185a318-4298-48e1-b441-3fdf017e5e2f	73
+1c3a8342-b095-4584-8419-455d2441139f	1996	38	2	1c81f3b0-a4d4-4b01-a884-d78b29808af0	68	3c6f0bde-ffe3-46ce-8803-e26a07b5f011	64
+41abedd6-2ad3-4206-bc83-082b632ce294	1996	39	2	b4dc2d35-8f82-49f2-a6a4-1ab9dc6167cc	62	08a1cda6-2364-4dce-bc84-a5c2eed11b74	65
+4d6f78ca-6d22-435d-b6b9-000108dcc0fd	1996	40	2	c866bdcd-883d-4d33-ac60-dcf2424cc5a4	95	86a53cb2-b25f-4a77-a7fd-c37dce50eaf7	81
+cef6d05e-b5ab-4b9b-b3e9-944f874b3a9a	1996	41	2	277a8eb4-3668-4ab8-99fd-a88076946ef1	63	1723d557-2f3a-4ce9-9ec2-96a5c020502e	41
+2be53072-b15e-4845-99e4-b005b251638f	1996	42	2	de0dff94-55af-4b8d-8b4f-bd1437fb8d5c	89	06010d14-75fc-4652-b5a8-29f4754b6eb1	103
+f19ab08c-310c-4282-9b5e-70f2b665a5b5	1996	43	2	d0a3ba6e-c3cf-42c8-9afc-e79ebce1d0cd	65	0452a188-6d3a-4eaa-9168-638a89ee6ae6	78
+36b68422-9c45-4693-aec0-7b11b1bd2ba7	1996	44	2	3e7c39cd-b410-400a-b731-6d9a7a78ec42	69	1dfa4838-6b30-44bc-8242-8b809529863b	76
+1e4a129b-bb58-4ca3-9ccc-3f5fe94434ed	1996	45	2	43c91c86-ad37-4b7b-9ffa-a24de52f5000	58	a2a1a50f-2aa8-4e57-a919-161dcb756020	69
+f55773f2-09ea-4744-9159-f669e1417693	1996	46	2	e3b67e40-09d8-4387-b22c-48bbd7b1da02	73	8e614b38-8504-4fd5-8a68-8aef9bd506f2	87
+e32b59ea-774b-4e11-984b-4661675a4ccd	1996	47	2	1ab0e813-99ef-47dd-b844-96f182e2bee2	51	d35851e0-29eb-4330-993a-52012d5172c7	76
+f3354053-c4b8-488b-8833-60e92de7ceee	1996	48	3	4c3f9222-3917-4570-b3af-666a66818d76	79	68d0df8f-b1f8-42a6-ad39-12c628b132bc	63
+7a99e915-9617-4494-b74d-0a6121ef1dfb	1996	49	3	9e03c83c-0313-4a60-9c3a-57139a305f12	90	79fd66f5-4024-4031-bd24-db545428741a	98
+ebf9ea54-e4f3-4f16-8e65-dec24cba6f4b	1996	50	3	8dd2e3cb-e456-4367-9371-d0e6265a8155	101	e185a318-4298-48e1-b441-3fdf017e5e2f	70
+e8b6749b-756d-4de7-be9b-297a8eca63e7	1996	51	3	1c81f3b0-a4d4-4b01-a884-d78b29808af0	59	08a1cda6-2364-4dce-bc84-a5c2eed11b74	60
+726e781b-1125-4701-9177-c50a458ab2f5	1996	52	3	c866bdcd-883d-4d33-ac60-dcf2424cc5a4	55	277a8eb4-3668-4ab8-99fd-a88076946ef1	60
+284c9857-0563-4dc1-81ed-c4ab382182f7	1996	53	3	06010d14-75fc-4652-b5a8-29f4754b6eb1	70	0452a188-6d3a-4eaa-9168-638a89ee6ae6	87
+7f5a3edb-511e-4d53-9166-1431cc8b6a96	1996	54	3	1dfa4838-6b30-44bc-8242-8b809529863b	81	a2a1a50f-2aa8-4e57-a919-161dcb756020	83
+eedcfd45-fdbc-48c2-aa01-d62f3fbc8bb1	1996	55	3	8e614b38-8504-4fd5-8a68-8aef9bd506f2	80	d35851e0-29eb-4330-993a-52012d5172c7	83
+f67b9c94-9f50-4186-a513-e9ad244b6a89	1996	56	4	4c3f9222-3917-4570-b3af-666a66818d76	86	79fd66f5-4024-4031-bd24-db545428741a	62
+98641824-e8fc-42de-a9ad-9088a59f1c9b	1996	57	4	8dd2e3cb-e456-4367-9371-d0e6265a8155	83	08a1cda6-2364-4dce-bc84-a5c2eed11b74	63
+df3ea8f8-69cc-4b08-9302-5dccfaceb94e	1996	58	4	277a8eb4-3668-4ab8-99fd-a88076946ef1	73	0452a188-6d3a-4eaa-9168-638a89ee6ae6	63
+6866a738-41f5-4968-89f6-fd4a39789e03	1996	59	4	a2a1a50f-2aa8-4e57-a919-161dcb756020	60	d35851e0-29eb-4330-993a-52012d5172c7	57
+a13979c0-5a23-418a-b027-776f30667df8	1996	60	5	4c3f9222-3917-4570-b3af-666a66818d76	74	8dd2e3cb-e456-4367-9371-d0e6265a8155	81
+fbf20e15-744a-469c-97c1-d77d0277e00b	1996	61	5	277a8eb4-3668-4ab8-99fd-a88076946ef1	69	a2a1a50f-2aa8-4e57-a919-161dcb756020	77
+8d8913fe-2d44-411f-82ff-2505503aa058	1996	62	6	8dd2e3cb-e456-4367-9371-d0e6265a8155	76	a2a1a50f-2aa8-4e57-a919-161dcb756020	67
+8a2a14a8-a9ae-4fe3-8665-7542fd37ffe3	1997	0	1	313b6140-228e-460d-9ab4-c18e2ad5577f	82	88e3675c-4d6b-4dc8-b609-7b09dd0bff20	74
+314fdfc3-4791-4d6a-9b5e-9b5809f58c96	1997	1	1	8362a6c2-ea51-43b8-8b44-7ac59c9f6eb6	62	58f7ca24-2cba-4367-a15c-f01f41417567	80
+86bf490d-c0fc-4e8b-a039-a8c09be069df	1997	2	1	d061eb88-02fe-405c-9900-1e3a6bf241e3	55	e7277d29-f000-4873-92d8-0ed00295029e	52
+3d2840a7-047a-443b-95ac-80799858bd3f	1997	3	1	5dafd57f-6720-4eab-bb8c-05f39431d78a	101	41201234-6bf5-4d8e-b6d7-d7b5bb507e60	91
+ed0f8320-a9d8-44dd-bac4-5fdac2710ffb	1997	4	1	3b15ea32-f03d-48d2-b708-b505e4909f83	65	a32b0f4c-a39c-4076-bb51-1e12b182dba8	57
+235d222b-de0a-46fe-8e33-ba71ad422562	1997	5	1	63432c72-4379-44c5-8afa-70cf3f42faf9	59	2ebe4e87-e5a0-41bc-879e-9e0d7ff0ceb4	55
+9adcc02b-e31f-4a23-a2c4-8a073da59142	1997	6	1	a894800b-be3d-4792-9340-ca84091b20f9	58	e582bd3e-8bea-4c83-a186-5510662d0b7f	71
+af41b233-dee4-4393-b53c-bafc695405cd	1997	7	1	80039d43-2ae4-4800-b1ce-32c35824ff43	65	12de75f0-88e2-4c64-bfb2-7644fda2f09a	78
+10967d6b-9236-454f-b004-6607f124dd85	1997	8	1	ecf4d782-f5fa-435e-ac8d-d8e561e8be54	78	c551beef-4a44-44fa-bb64-d91dd0a0e997	64
+a9ac860c-2997-4104-a07f-eb9844ae7e26	1997	9	1	937259d6-68f8-463e-b0a3-8b548b169a29	83	75a8a0e0-ffd9-487e-80b0-e0acf94bafee	76
+f25b6ec2-32bc-4195-827c-1049bf1cb58a	1997	10	1	cc11d84b-f357-4577-92fb-7e1394af8cc1	66	9494fe88-8ca7-469e-845d-fba5d459738b	75
+a7b3c8a0-3d3d-439a-ad5a-a4456c5bdb12	1997	11	1	8b796197-24ab-4c48-a300-9161c7e9de18	65	c232a8f1-a189-47fe-abc8-1d8bc0a5d92e	57
+2d413408-6aa0-43b7-afcb-c74b9bad88d5	1997	12	1	55081e51-2061-4736-908b-2084611d95f0	90	8751eba3-4a04-4ccc-9722-6471aee5047b	77
+a828e168-6a43-452b-9ffa-96ff4e1e96fc	1997	13	1	fdba59b4-5ec6-4b11-840d-a5f867d29382	70	5270683b-0337-4f6a-8a93-f7bdf5720f0b	73
+ad71e9ee-9900-46ee-b669-d87682219968	1997	14	1	d944d1fd-196d-4881-b186-9cf015ac5506	59	33c45a7a-895f-41a6-b3ee-2e2e1ad62dbb	81
+4da7e3db-a550-4daa-9eec-adf9b5045d59	1997	15	1	6d54e8ba-d82d-448e-b424-096c90651dcb	71	68e34dca-6fa7-4314-9644-2100e71e43bd	68
+10ba4415-a932-4eb5-ad25-295709af3167	1997	16	1	34f5881e-5d79-45da-adaa-314b70bfcab3	78	112f48a8-3c49-4c58-82f3-657b88006b3d	46
+6885f001-97fb-49f8-a158-9eeba6ab4c7a	1997	17	1	28d764c3-05fe-4139-8139-194eaa93d919	40	101ec22a-c0b3-453f-a088-b1d3433c111f	62
+3ea2c8a0-b091-4c7e-a586-1038c7d9528d	1997	18	1	be51f446-bdc0-4518-936f-a8b7adeb598b	81	f8c9aef8-4cda-4cae-af61-5382a09c58fa	52
+f4e7bb8b-5d7b-4eab-8845-e44796a57655	1997	19	1	97cd4c3f-36a5-47f1-b12e-42f7971fd005	68	53b8b4ae-93fc-41c7-9bda-e68d76123cf2	56
+c5d9aa83-5eb4-40a9-85df-f8e44c55865e	1997	20	1	3992451d-7ab9-42e6-b24a-ec00ce74d12e	69	c9dd4326-d531-4400-b9d9-9b7c2761076d	57
+60202ddc-87ca-4d7d-a27a-1aa2031cf406	1997	21	1	d64601fd-4ca7-4cc8-8cce-2e622faceff6	86	610d3c9f-28d0-4576-944e-78d4de3e30e3	69
+4a214b90-317e-4eec-81df-fbc7dc1de227	1997	22	1	c88afed8-7005-4313-958c-60b3878109c7	80	62e19f30-a8e1-4b1d-9fae-2efa61d50811	68
+80b93e20-2945-4a9f-b019-4587d2034a3f	1997	23	1	79a65ecb-a102-4e7e-b83f-08264fac220a	109	0d046aef-687d-47a4-92f4-016f8d481427	75
+9750eee8-e18d-433c-ba2b-fa583ec1c6c4	1997	24	1	abfca733-352d-40a1-b32b-9c6a57c7b1c2	92	c6b26b13-c63d-4cbb-b8e3-3fd5e0736ebf	54
+b15e4028-c821-4274-96dd-dc5a1062b75b	1997	25	1	4a29ffcc-86de-4e37-9aed-9d027233389b	73	8fc1911d-34b9-48f6-a3fb-9c9d98cab204	60
+f87cdbec-e47f-4f1d-a7b1-1dd32da23984	1997	26	1	8e91a63f-9f7e-4c33-a9c2-90426e864d74	73	efe90e73-f9b1-4199-8a07-303a516d3136	66
+2db96d05-702b-4457-aced-5cf161aa6db5	1997	27	1	b90f4851-61e5-429e-b45d-fcb8033c8bbf	75	33158f28-3f51-442a-abc2-dab72a60bfe4	65
+0da3f9ad-83f6-452d-8375-be2b9a12aa8f	1997	28	1	8d501712-c896-4d91-a36f-5969992c85ef	80	972d67e0-4c32-4ba4-b5f2-899b897f7df9	67
+5fbdaede-79b7-4f30-920e-95955c4ccba1	1997	29	1	353c2336-151c-4840-af9e-4c643249da57	68	2c2b1d11-74ce-4bec-968c-462395e3258d	46
+620051c4-5ee0-4d3f-a2cc-c8103aaabbc2	1997	30	1	1c2fe29d-527a-45f0-99e6-49292afa54d0	79	6eafe170-0ad5-470c-9ad9-827d5abf3c28	67
+d233409e-9128-40b9-943f-6230549c12b8	1997	31	1	d6fb502f-e258-44b0-91e7-6ae0af969268	75	463c4c95-927b-483e-8dd8-accaca1158a6	61
+6dfced27-81b8-4fae-a015-8ffc88edccd5	1997	32	2	313b6140-228e-460d-9ab4-c18e2ad5577f	73	58f7ca24-2cba-4367-a15c-f01f41417567	56
+b208653a-7d91-4873-88d0-81cdef60bbbd	1997	33	2	d061eb88-02fe-405c-9900-1e3a6bf241e3	75	5dafd57f-6720-4eab-bb8c-05f39431d78a	68
+162b4287-37e7-4202-b000-30f5ac01ffe8	1997	34	2	3b15ea32-f03d-48d2-b708-b505e4909f83	64	63432c72-4379-44c5-8afa-70cf3f42faf9	63
+44dec838-7cd7-43a9-a7ca-440f9a68cef4	1997	35	2	e582bd3e-8bea-4c83-a186-5510662d0b7f	82	12de75f0-88e2-4c64-bfb2-7644fda2f09a	81
+c9a3da28-9668-4140-a29e-4a1fff20d269	1997	36	2	ecf4d782-f5fa-435e-ac8d-d8e561e8be54	75	937259d6-68f8-463e-b0a3-8b548b169a29	61
+dacf533b-4f5c-4167-aad4-8a0bdd57b12a	1997	37	2	9494fe88-8ca7-469e-845d-fba5d459738b	69	8b796197-24ab-4c48-a300-9161c7e9de18	73
+91663a12-b205-413a-9d3d-31fdfcf3e5a2	1997	38	2	55081e51-2061-4736-908b-2084611d95f0	63	5270683b-0337-4f6a-8a93-f7bdf5720f0b	75
+d7384690-2161-4e76-8711-27b75af0d49c	1997	39	2	33c45a7a-895f-41a6-b3ee-2e2e1ad62dbb	98	6d54e8ba-d82d-448e-b424-096c90651dcb	87
+b88f1ca6-d25e-4d4a-b007-93e4b0cb9e33	1997	40	2	34f5881e-5d79-45da-adaa-314b70bfcab3	76	101ec22a-c0b3-453f-a088-b1d3433c111f	57
+57857bcf-3b18-46cf-958d-619b3f39f8a7	1997	41	2	be51f446-bdc0-4518-936f-a8b7adeb598b	59	97cd4c3f-36a5-47f1-b12e-42f7971fd005	65
+b16d1704-a4a1-4b75-b7a2-ce5b8d8469ed	1997	42	2	3992451d-7ab9-42e6-b24a-ec00ce74d12e	67	d64601fd-4ca7-4cc8-8cce-2e622faceff6	66
+13d1bf56-ac5b-410b-87d0-3041f922cc65	1997	43	2	c88afed8-7005-4313-958c-60b3878109c7	83	79a65ecb-a102-4e7e-b83f-08264fac220a	96
+7d0380cf-ad82-4143-8d37-127881828bee	1997	44	2	abfca733-352d-40a1-b32b-9c6a57c7b1c2	75	4a29ffcc-86de-4e37-9aed-9d027233389b	69
+0fd7ec01-5316-4ca1-8d75-60114cd37a28	1997	45	2	8e91a63f-9f7e-4c33-a9c2-90426e864d74	77	b90f4851-61e5-429e-b45d-fcb8033c8bbf	81
+0c6d8eab-e690-4ef0-8d80-155db301a339	1997	46	2	8d501712-c896-4d91-a36f-5969992c85ef	72	353c2336-151c-4840-af9e-4c643249da57	66
+50e0af5e-b908-45db-8d33-31d4cb228138	1997	47	2	1c2fe29d-527a-45f0-99e6-49292afa54d0	58	d6fb502f-e258-44b0-91e7-6ae0af969268	77
+7c4fa2c2-d070-4cd3-9f02-8904f8746f48	1997	48	3	313b6140-228e-460d-9ab4-c18e2ad5577f	63	d061eb88-02fe-405c-9900-1e3a6bf241e3	57
+68fac9ed-375c-4aa2-8bcf-d5c6f7b7f503	1997	49	3	3b15ea32-f03d-48d2-b708-b505e4909f83	78	e582bd3e-8bea-4c83-a186-5510662d0b7f	63
+c6a7f0ef-8bf2-4d41-a7e2-6794de9ac39b	1997	50	3	ecf4d782-f5fa-435e-ac8d-d8e561e8be54	82	8b796197-24ab-4c48-a300-9161c7e9de18	85
+2a12748d-8db5-4171-85d3-e569799ee4ef	1997	51	3	5270683b-0337-4f6a-8a93-f7bdf5720f0b	65	33c45a7a-895f-41a6-b3ee-2e2e1ad62dbb	71
+642c4f61-1f74-461e-82c1-c99c30182649	1997	52	3	34f5881e-5d79-45da-adaa-314b70bfcab3	90	97cd4c3f-36a5-47f1-b12e-42f7971fd005	84
+bb9c14ec-f08c-4a2f-8a21-d28b5241c62f	1997	53	3	3992451d-7ab9-42e6-b24a-ec00ce74d12e	73	79a65ecb-a102-4e7e-b83f-08264fac220a	74
+5fe232f5-c37c-4831-b4bb-3b2956b76703	1997	54	3	abfca733-352d-40a1-b32b-9c6a57c7b1c2	83	b90f4851-61e5-429e-b45d-fcb8033c8bbf	68
+d167bb28-5530-440d-9120-666b70d8d883	1997	55	3	8d501712-c896-4d91-a36f-5969992c85ef	77	d6fb502f-e258-44b0-91e7-6ae0af969268	82
+e0fad0a0-673c-4ed3-aaa1-6d52e956b057	1997	56	4	313b6140-228e-460d-9ab4-c18e2ad5577f	97	3b15ea32-f03d-48d2-b708-b505e4909f83	74
+d2f887da-88e1-4f59-b214-9ecf2c30fd02	1997	57	4	8b796197-24ab-4c48-a300-9161c7e9de18	96	33c45a7a-895f-41a6-b3ee-2e2e1ad62dbb	92
+2772212e-1d47-45af-ad86-b0c48b517996	1997	58	4	34f5881e-5d79-45da-adaa-314b70bfcab3	80	79a65ecb-a102-4e7e-b83f-08264fac220a	72
+35a7cca4-f726-4e71-9777-f5a5687ce048	1997	59	4	abfca733-352d-40a1-b32b-9c6a57c7b1c2	72	d6fb502f-e258-44b0-91e7-6ae0af969268	59
+40dfd5fb-adca-48ed-bd3e-da2267fcad1a	1997	60	5	313b6140-228e-460d-9ab4-c18e2ad5577f	58	8b796197-24ab-4c48-a300-9161c7e9de18	66
+6856a26b-0bfc-4638-bcde-969135051e87	1997	61	5	34f5881e-5d79-45da-adaa-314b70bfcab3	69	abfca733-352d-40a1-b32b-9c6a57c7b1c2	78
+c884d08c-e251-4362-b603-bf1635be9b57	1997	62	6	8b796197-24ab-4c48-a300-9161c7e9de18	84	abfca733-352d-40a1-b32b-9c6a57c7b1c2	79
+\.
