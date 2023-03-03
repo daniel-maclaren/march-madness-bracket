@@ -21,15 +21,7 @@
 	</body>
 
 	<script id="regionTemplate" type="text/template">
-		<div>
-			<label for="region-{REGION}-name">Select region: </label>
-			<select name="region-{REGION}-name" id="region-{REGION}-name" data-region="{REGION}">
-				<option value="east">East</option>
-				<option value="midwest">Midwest</option>
-				<option value="southeast">Southeast</option>
-				<option value="west">West</option>
-			</select>
-		</div>
+		<h3>Region {REGION}</h3>
 		<div id="region-{REGION}-round-1" class="round">
 			<h4>Round 1</h4>
 		</div>
@@ -174,11 +166,6 @@
 				e.dispatchEvent(new Event("change", {"bubbles": true}));
 			});
 
-			document.getElementById("region-1-name").value = "east";
-			document.getElementById("region-2-name").value = "midwest";
-			document.getElementById("region-3-name").value = "west";
-			document.getElementById("region-4-name").value = "southeast";
-
 			for (let i = 0; i < 63; i++) {
 				const p0 = document.querySelector(`[class="score"][data-match="${i}"][data-position="0"]`);
 				p0.value = getRndInteger(50, 100);
@@ -277,14 +264,11 @@
 			event.preventDefault();
 
 			const year = parseInt(document.getElementById("year").value);
-			const regionMap = {};
-			document.querySelectorAll("select[data-region]")
-					.forEach(e => regionMap[e.dataset.region] = e.value );
 
 			const bracket = {
 				matches: [],
 				teams: teams.map(t => {
-					return { name: t.name, seed: t.seed, region: regionMap[t.region], year: year }
+					return { name: t.name, seed: t.seed, region: `r${t.region}`, year: year }
 				})
 			};
 
